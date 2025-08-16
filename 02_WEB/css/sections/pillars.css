@@ -2,6 +2,14 @@
 #pillars { 
   position: relative; 
   /* Remove the CTA from this section as requested */
+  /* Center the entire pillars section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ensure full width for proper centering */
+  width: 100%;
+  /* Center the section content within the viewport */
+  justify-content: center;
 }
 
 /* ===== PILLARS SECTION TITLE WITH RAINBOW EFFECT ===== */
@@ -51,10 +59,17 @@
   /* Desktop: 2x2 layout for better size */
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto; /* Center the grid */
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  /* Ensure perfect centering to viewport */
+  justify-content: center;
+  justify-items: center;
+  place-items: center;
+  /* Center the entire grid within its container */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ===== INDIVIDUAL PILLAR PANEL - GLASS MORPHISM WITH INTRO TEXTURE ===== */
@@ -62,6 +77,9 @@
   position: relative;
   /* Fixed square aspect ratio */
   aspect-ratio: 1;
+  /* Full width within grid cell */
+  width: 100%;
+  max-width: 350px; /* Reasonable maximum size */
   /* Glass morphism background - same as intro panel */
   background: rgba(255, 255, 255, var(--intro-glass-bg-opacity, 0.08));
   /* Corner roundness - linked to global --border-radius variable */
@@ -290,8 +308,11 @@
   .pillars-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin: 1.5rem 0;
-    max-width: 400px;
+    margin: 1.5rem auto; /* Keep centering on mobile */
+    max-width: 350px;
+    /* Maintain centering */
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .pillar-panel {
@@ -326,6 +347,10 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 700px;
     gap: 1.5rem;
+    margin: 2rem auto; /* Center on tablet too */
+    /* Maintain centering */
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -335,6 +360,10 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 800px;
     gap: 2rem;
+    margin: 2rem auto; /* Center on desktop too */
+    /* Maintain centering */
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

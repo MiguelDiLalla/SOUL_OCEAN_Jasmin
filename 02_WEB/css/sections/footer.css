@@ -1,0 +1,130 @@
+/* ===== GLASS FOOTER ===== */
+.glass-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  
+  /* Glass morphism effect */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Subtle shadow */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  
+  /* Padding and sizing */
+  padding: 1rem 2rem;
+  min-height: 70px;
+  
+  /* Ensure above other content */
+  isolation: isolate;
+}
+
+.footer-content {
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Clean icons without framing */
+  color: var(--accent-color, #F2B738); /* Use accent color instead of white */
+  text-decoration: none;
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+  
+  /* Remove default link styles */
+  outline: none;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--accent-color, #F2B738);
+  transform: translateY(-2px);
+  
+  /* Subtle glow effect */
+  filter: brightness(1.2);
+  text-shadow: 0 0 10px var(--accent-color, #F2B738);
+}
+
+.footer-link svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
+.footer-link:hover svg {
+  fill: var(--accent-color, #F2B738);
+}
+
+/* Ensure main content doesn't overlap footer */
+.main-content {
+  padding-bottom: 100px; /* Space for fixed footer */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .glass-footer {
+    padding: 0.75rem 1rem;
+    min-height: 60px;
+  }
+  
+  .footer-links {
+    gap: 1.5rem;
+  }
+  
+  .footer-link svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .main-content {
+    padding-bottom: 80px; /* Reduced space for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    gap: 1rem;
+  }
+  
+  .footer-link svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .footer-link {
+    transition: none;
+  }
+  
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    transform: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.footer-link:focus-visible {
+  outline: 2px solid var(--accent-color, #F2B738);
+  outline-offset: 2px;
+}
