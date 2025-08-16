@@ -22,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../../assets/jasminColor.webp');
+    background-image: url('../assets/jasminColor.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 }
 
 .bio-panel.bw-active::before {
-    background-image: url('../../assets/jasminBW.webp');
+    background-image: url('../assets/jasminBW.webp');
     filter: blur(20px) brightness(0.2) saturate(0.5);
 }
 

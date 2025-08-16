@@ -178,7 +178,7 @@ function applyIntroAesthetics(config) {
  */
 async function loadAndApplyIntroConfig() {
     try {
-        const response = await fetch('/content/config.json');
+        const response = await fetch('content/config.json');
         if (!response.ok) {
             throw new Error(`Failed to load config: ${response.status} ${response.statusText}`);
         }

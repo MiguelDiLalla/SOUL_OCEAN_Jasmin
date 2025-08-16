@@ -46,21 +46,17 @@ class CatalogMystical {
         // Hide the mystical overlay with animation
         overlay.classList.add('hidden');
         
-        // Add subtle scale effect for the content reveal
-        setTimeout(() => {
-            const content = productItem.querySelector('.product-content');
-            if (content) {
-                content.style.transform = 'scale(0.95)';
-                content.style.opacity = '0';
-                
-                // Animate content entrance
-                requestAnimationFrame(() => {
-                    content.style.transition = 'all 0.4s ease';
-                    content.style.transform = 'scale(1)';
-                    content.style.opacity = '1';
-                });
-            }
-        }, 100);
+        // Clear any existing style overrides on overlay
+        overlay.style.transform = '';
+        overlay.style.opacity = '';
+        overlay.style.transition = '';
+        
+        // Show and animate content entrance
+        const content = productItem.querySelector('.product-content');
+        if (content) {
+            content.style.opacity = '1';
+            content.style.transform = 'scale(1)';
+        }
 
         console.log(`Product revealed: ${productItem.dataset.product}`);
     }
@@ -72,15 +68,17 @@ class CatalogMystical {
         // Show the mystical overlay with animation
         overlay.classList.remove('hidden');
         
-        // Add entrance effect for the returning overlay
-        overlay.style.transform = 'scale(1.1)';
-        overlay.style.opacity = '0';
+        // Clear any existing style overrides and reset overlay
+        overlay.style.transform = '';
+        overlay.style.opacity = '';
+        overlay.style.transition = '';
         
-        requestAnimationFrame(() => {
-            overlay.style.transition = 'all 0.6s ease';
-            overlay.style.transform = 'scale(1)';
-            overlay.style.opacity = '1';
-        });
+        // Hide content immediately
+        const content = productItem.querySelector('.product-content');
+        if (content) {
+            content.style.opacity = '0';
+            content.style.transform = '';
+        }
 
         console.log(`Product mystified: ${productItem.dataset.product}`);
     }

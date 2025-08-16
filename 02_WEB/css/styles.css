@@ -440,7 +440,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../../assets/jasminColor.webp');
+    background-image: url('../assets/jasminColor.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -451,7 +451,7 @@
 }
 
 .bio-panel.bw-active::before {
-    background-image: url('../../assets/jasminBW.webp');
+    background-image: url('../assets/jasminBW.webp');
     filter: blur(20px) brightness(0.2) saturate(0.5);
 }
 
@@ -621,7 +621,7 @@
 
 .bio-quote-overlay .quote {
     background: none;
-    color: var(--text-color);
+    color: var(--accent-color);
     padding: 0;
     border-radius: 0;
     font-size: 1.2rem;
@@ -633,6 +633,20 @@
     font-style: italic;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     line-height: 1.4;
+}
+
+.bio-quote-overlay .quote::before {
+    content: '"';
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.2em;
+}
+
+.bio-quote-overlay .quote::after {
+    content: '"';
+    font-size: 1.5em;
+    line-height: 0;
+    vertical-align: -0.2em;
 }
 
 /* Mobile Responsive Design */
@@ -817,11 +831,65 @@
 }
 
 .product-content {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 5;
   padding: 2rem;
   opacity: 0;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal overflow */
   transition: opacity 0.4s ease 0.2s;
+  /* Ensure content container fills the panel */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) rgba(255, 255, 255, 0.1);
+}
+
+/* Webkit scrollbar styling */
+.product-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.product-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.product-content::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.product-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Product image styling for bottom images - no shadows, no hover effects */
+.product-image-container {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  transition: none;
+}
+
+.product-image:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .product-item.revealed .product-content {
@@ -830,19 +898,19 @@
 
 /* Specific background images for each product */
 .product-overlay.coaching {
-  background-image: url('../../assets/catalog/coaching.webp');
+  background-image: url('../assets/catalog/coaching.webp');
 }
 
 .product-overlay.wildfit {
-  background-image: url('../../assets/catalog/wildfit.webp');
+  background-image: url('../assets/catalog/wildfit.webp');
 }
 
 .product-overlay.foodfreedom {
-  background-image: url('../../assets/catalog/foodfreedom.webp');
+  background-image: url('../assets/catalog/foodfreedom.webp');
 }
 
 .product-overlay.radiant {
-  background-image: url('../../assets/catalog/radiant.webp');
+  background-image: url('../assets/catalog/radiant.webp');
 }
 
 /* Enhanced mystical hover effects */
@@ -917,7 +985,7 @@
   max-width: var(--max-width, 1200px);
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end; /* Align to the right */
+  justify-content: flex-start; /* Align to the left */
   align-items: center;
 }
 
@@ -925,7 +993,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
-  justify-content: flex-end; /* Align to the right */
+  justify-content: flex-start; /* Align to the left */
 }
 
 .footer-link {
@@ -1287,14 +1355,17 @@
 /* ===== PILLARS SECTION CONTAINER ===== */
 #pillars { 
   position: relative; 
-  /* Remove the CTA from this section as requested */
+  /* Override section constraints for full-width centering */
+  max-width: none !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   /* Center the entire pillars section */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Ensure full width for proper centering */
-  width: 100%;
-  /* Center the section content within the viewport */
   justify-content: center;
 }
 
@@ -1348,14 +1419,9 @@
   margin: 2rem auto; /* Center the grid */
   max-width: 800px;
   width: 100%;
-  /* Ensure perfect centering to viewport */
-  justify-content: center;
-  justify-items: center;
-  place-items: center;
-  /* Center the entire grid within its container */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  /* Ensure proper centering within full-width container */
+  justify-self: center;
+  place-self: center;
 }
 
 /* ===== INDIVIDUAL PILLAR PANEL - GLASS MORPHISM WITH INTRO TEXTURE ===== */
@@ -1596,9 +1662,6 @@
     gap: 1.5rem;
     margin: 1.5rem auto; /* Keep centering on mobile */
     max-width: 350px;
-    /* Maintain centering */
-    left: 50%;
-    transform: translateX(-50%);
   }
   
   .pillar-panel {
@@ -1634,9 +1697,6 @@
     max-width: 700px;
     gap: 1.5rem;
     margin: 2rem auto; /* Center on tablet too */
-    /* Maintain centering */
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
@@ -1647,9 +1707,6 @@
     max-width: 800px;
     gap: 2rem;
     margin: 2rem auto; /* Center on desktop too */
-    /* Maintain centering */
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
