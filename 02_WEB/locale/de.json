@@ -1,0 +1,147 @@
+{
+  "brand": {
+    "name": "Soul+Ocean — Health & Wellness",
+    "tagline": "Mein Wohlbefinden ist ansteckend"
+  },
+  "intro": {
+    "title": "Einführung — Was ist Soul+Ocean?",
+    "body": "Soul+Ocean ist eine Community und Bewegung für Wohlbefinden, entstanden auf den Kanarischen Inseln. Wir helfen dir, dich wieder mit deiner Energie, Klarheit und deinem Purpose zu verbinden. Wir glauben: Wohlbefinden breitet sich wie eine Welle aus – wenn du dich wirklich um dich kümmerst, steckst du dein Umfeld mit Gesundheit und Vitalität an.",
+    "bullets": [
+      "Essenz: Authentizität, Verbindung, Wissenschaft + Bewusstsein, nachhaltige Ergebnisse.",
+      "Was wir tun: Coaching, Programme und Erlebnisse, die bewusste Ernährung, Emotionsregulation und alltagstaugliche Gewohnheiten integrieren.",
+      "Für wen: aktive Berufstätige und sportliche/aktive Menschen, die mehr Energie, Fokus und Freiheit im Umgang mit Ernährung wollen."
+    ],
+    "cta_primary": "Buche deine Initial‑Mentoring‑Session"
+  },
+  "promise": {
+    "title": "Markenversprechen",
+    "quote": "Ich helfe dir, deine Beziehung zu Nahrung, deinem Körper und deiner Energie zu transformieren, damit du mit mehr Vitalität, Klarheit und Balance lebst – ohne restriktive Diäten. Mein Wohlbefinden ist ansteckend, und ich möchte, dass deins es auch ist.",
+    "how_title": "So arbeiten wir",
+    "how_bullets": [
+      "Ganzheitlicher und integrativer Ansatz (Körper–Geist–Emotionen).",
+      "Praktische Vermittlung mit enger Begleitung und klarer Verantwortlichkeit.",
+      "Personalisierte Protokolle, die zu deinem Leben passen (und nicht umgekehrt)."
+    ],
+    "cta": "Starte mit deinem Initial‑Mentoring"
+  },
+  "bio": {
+    "title": "Wer ist Jasmin Klaus?",
+    "badge": "Coach für ganzheitliche Ernährung & Lifestyle‑Transformation. Athletin und Surferin. WILDFIT® Certified Coach.",
+    "bullets": [
+      "20+ Jahre im Tourismus und in der Hotellerie, Führung von High‑Performance‑Erlebnissen und Prozessoptimierung.",
+      "Integriert emotionale Intelligenz und NLP für tiefe, nachhaltige Veränderungen.",
+      "Kommuniziert auf Deutsch, Englisch und Spanisch.",
+      "Sitz auf den Kanarischen Inseln; Arbeit vor Ort und online."
+    ],
+    "quote": "Dein Wohlbefinden kann deine ansteckendste Energie sein. Ich helfe dir, sie zu aktivieren.",
+    "cta": "Lerne mich kennen und buche dein Mentoring"
+  },
+  "pillars": {
+    "title": "Was die Zusammenarbeit mit Jasmin bedeutet — 4 Säulen",
+    "items": [
+      {
+        "title": "Stress definieren",
+        "work": "Landkarte deiner Stressoren (beruflich, emotional, physiologisch) und deren Einfluss auf Energie, Schlaf und Verdauung.",
+        "result": "Personalisierte Regulationsstrategien, wirksame Pausen und Termin‑Grenzen, um Klarheit und Leistungsfähigkeit zurückzugewinnen."
+      },
+      {
+        "title": "Grenzen setzen lernen",
+        "work": "Familiäre und soziale Muster, die Energie rauben; selbstbewusste, klare Kommunikation.",
+        "result": "Gesunde, liebevolle Grenzen; ausgewogenere Beziehungen und Qualitätszeit für dich."
+      },
+      {
+        "title": "Eine Routine, die dich trägt",
+        "work": "Realistische Rituale (Ernährung, Bewegung, Erholung), die zu deinem Alltag passen.",
+        "result": "Konstanz ohne Reibung, täglicher Fokus und messbare Fortschritte."
+      },
+      {
+        "title": "Die Kraft der Selbstfürsorge",
+        "work": "Selbstwert und Gewohnheiten, die Körper–Geist–Seele nähren.",
+        "result": "Mehr Selbstvertrauen, stabile Energie und Entscheidungen im Einklang mit deinen Zielen."
+      }
+    ],
+    "cta_mid": "Ich will mein Initial‑Mentoring"
+  },
+  "catalog": {
+    "title": "Jasmins Angebot (wird nach deinem Initial‑Mentoring festgelegt)",
+    "note": "Wir starten immer mit der Initial‑Mentoring‑Session. Auf Basis deines Checks empfehle ich den passenden Weg.",
+    "quiz": {
+      "title": "FAST QUIZ: Finde dein passendes Programm",
+      "q1": {
+        "question": "Was beschreibt dein derzeitiges Hauptziel am besten?",
+        "options": [
+          "Energie zurückgewinnen und nachhaltige Gewohnheiten aufbauen. (Coaching 1:1)",
+          "Meinen Stoffwechsel und meine Beziehung zum Essen zurücksetzen. (WILDFIT® 90 Day)",
+          "Aus Heißhunger und dem Diät‑Schuld‑Kreislauf aussteigen. (Food Freedom)",
+          "Meine Energie und Emotionen mit täglichen Routinen ausbalancieren. (Radiant Balance)"
+        ]
+      },
+      "q2": {
+        "question": "Was ist deine größte Herausforderung rund um Ernährung und Wohlbefinden?",
+        "options": [
+          "Dranzubleiben und einen persönlichen Plan zu haben. (Coaching 1:1)",
+          "Einem bewährten Schritt‑für‑Schritt‑Ansatz folgen. (WILDFIT® 90 Day)",
+          "Wieder die natürlichen Signale meines Körpers zu hören. (Food Freedom)",
+          "Ernährung, Erholung und Bewegung in meinen Alltag integrieren. (Radiant Balance)"
+        ]
+      },
+      "q3": {
+        "question": "Welches Format passt am besten zu dir?",
+        "options": [
+          "1:1‑Sessions in meinem Tempo. (Coaching 1:1)",
+          "Gruppenprogramm mit Begleitung und Videos. (WILDFIT® 90 Day)",
+          "Kurzer, direkter Pfad für gezielte Veränderungen. (Food Freedom)",
+          "Integriertes Programm mit mehreren Wohlfühl‑Bereichen. (Radiant Balance)"
+        ]
+      },
+      "q4": {
+        "question": "Welches Ergebnis begeistert dich am meisten?",
+        "options": [
+          "Klarheit und ein tragfähiger Plan für meine Gesundheit. (Coaching 1:1)",
+          "Ernährungs‑ und Lebensstilwandel von Grund auf. (WILDFIT® 90 Day)",
+          "Frei essen – ohne Schuldgefühle oder Angst. (Food Freedom)",
+          "Mich täglich körperlich und emotional im Gleichgewicht fühlen. (Radiant Balance)"
+        ]
+      }
+    },
+    "products": [
+      {
+        "id": "coaching_1_1",
+        "title": "Coaching 1:1 — Personalisierte Transformation (Einstieg)",
+        "bullets": [
+          "Format: maßgeschneiderte Sessions | Sprachen: ES · EN · DE | Modalität: vor Ort (Kanarische Inseln) und online.",
+          "Für dich, wenn du enge Begleitung für Ernährung, Stressmanagement, Energieaufbau und nachhaltige Gewohnheiten möchtest.",
+          "Enthält: individuellen Sitzungsplan + Follow‑up und Accountability."
+        ]
+      },
+      {
+        "id": "wildfit_90",
+        "title": "WILDFIT® 90 Day Challenge — Setze deinen Körper und dein Leben zurück",
+        "bullets": [
+          "Dauer: 90 Tage | Format: Online‑Coaching (Gruppe + 1:1‑Support).",
+          "Ziel: deine Beziehung zum Essen neu programmieren und einen nachhaltigen Lebensstil etablieren.",
+          "Enthält: 12+ Videos mit dem Gründer, Fortschritts‑Journal, Community und das E‑Book „Living WILDFIT“."
+        ]
+      },
+      {
+        "id": "food_freedom",
+        "title": "FOOD FREEDOM — Zurück zu deinem natürlichen Ausgangspunkt",
+        "bullets": [
+          "Dauer: 6 Online‑Sessions | Format: Gruppe oder Einzel.",
+          "Ziel: den Diät‑Heißhunger‑Schuld‑Kreislauf durchbrechen und natürliche Hunger‑/Sättigungssignale zurückgewinnen.",
+          "Enthält: Habit‑Reprogrammierung, Ernährungsbildung und fortlaufende Begleitung."
+        ]
+      },
+      {
+        "id": "radiant_balance",
+        "title": "RADIANT Balance | Young SOULS — 8 Wochen",
+        "bullets": [
+          "Dauer: 8 Wochen | Format: integriertes Online‑Programm.",
+          "Ziel: stabile Energie, emotionales Gleichgewicht und tägliche Routinen.",
+          "Enthält: Ernährung + Meditation + bewusste Bewegung; Organisation und gesunde Grenzen."
+        ]
+      }
+    ],
+    "cta_final": "Buche deine Initial‑Mentoring‑Session"
+  }
+}

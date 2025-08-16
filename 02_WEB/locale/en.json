@@ -1,0 +1,147 @@
+{
+  "brand": {
+    "name": "Soul+Ocean — Health & Wellness",
+    "tagline": "My Wellbeing is Contagious"
+  },
+  "intro": {
+    "title": "Introduction — What is Soul+Ocean?",
+    "body": "Soul+Ocean is a wellbeing community and movement born in the Canary Islands to help you reconnect with your energy, clarity and purpose. We believe wellbeing spreads like a wave: when you truly take care of yourself, you spread health and vitality to those around you.",
+    "bullets": [
+      "Essence: authenticity, connection, science + consciousness, sustainable results.",
+      "What we do: coaching, programmes and experiences that integrate conscious nutrition, emotional management and real‑life habits.",
+      "Who for: active professionals and sporty/active people who want more energy, focus and freedom with food."
+    ],
+    "cta_primary": "Book your Initial Mentoring Session"
+  },
+  "promise": {
+    "title": "Brand Promise",
+    "quote": "I help you transform your relationship with food, your body and your energy so you can live with more vitality, clarity and balance—without restrictive diets. My wellbeing is contagious, and I want yours to be too.",
+    "how_title": "How we do it",
+    "how_bullets": [
+      "Holistic and integrative approach (body–mind–emotions).",
+      "Practical education with close support and accountability.",
+      "Personalised protocols that fit your life (not the other way around)."
+    ],
+    "cta": "Start with your Initial Mentoring"
+  },
+  "bio": {
+    "title": "Who is Jasmin Klaus?",
+    "badge": "Holistic Nutrition & Lifestyle Transformation Coach. Athlete and surfer. WILDFIT® Certified Coach.",
+    "bullets": [
+      "20+ years in tourism and hospitality leading high‑performance experiences and process improvement.",
+      "Integrates emotional intelligence and NLP for deep, sustainable change.",
+      "Communicates in German, English and Spanish.",
+      "Based in the Canary Islands; in‑person and online work."
+    ],
+    "quote": "Your wellbeing can be your most contagious energy. I’m here to help you activate it.",
+    "cta": "Meet me and book your Mentoring"
+  },
+  "pillars": {
+    "title": "What it means to work with Jasmin — 4 pillars",
+    "items": [
+      {
+        "title": "Define your stress",
+        "work": "Map your stressors (work, emotional, physiological) and their impact on energy, sleep and digestion.",
+        "result": "Personalised regulation strategies, effective pauses and schedule boundaries to regain clarity and performance."
+      },
+      {
+        "title": "Learn to set boundaries",
+        "work": "Family and social patterns that drain your energy; assertive communication.",
+        "result": "Healthy, loving boundaries; more balanced relationships and quality time for you."
+      },
+      {
+        "title": "Build a routine that holds you",
+        "work": "Realistic rituals (nutrition, movement, rest) that fit your life.",
+        "result": "Frictionless consistency, daily focus and measurable progress."
+      },
+      {
+        "title": "The power of self‑care",
+        "work": "Self‑worth and caring habits that nourish body–mind–soul.",
+        "result": "More self‑esteem, steady energy and decisions aligned with your goals."
+      }
+    ],
+    "cta_mid": "I want my Initial Mentoring"
+  },
+  "catalog": {
+    "title": "Jasmin’s Catalogue (defined after your Initial Mentoring)",
+    "note": "We always start with the Initial Mentoring Session. From your diagnosis, I’ll recommend the most suitable path.",
+    "quiz": {
+      "title": "FAST QUIZ: find your best‑fit programme",
+      "q1": {
+        "question": "Which best describes your main goal right now?",
+        "options": [
+          "Regain energy and build sustainable habits. (Coaching 1:1)",
+          "Reset my metabolism and relationship with food. (WILDFIT® 90 Day)",
+          "Break free from cravings and the diet–guilt cycle. (Food Freedom)",
+          "Balance my energy and emotions with daily habits. (Radiant Balance)"
+        ]
+      },
+      "q2": {
+        "question": "What’s your biggest challenge with food and wellbeing?",
+        "options": [
+          "Staying consistent and having a personalised plan. (Coaching 1:1)",
+          "Following a proven method that guides me step by step. (WILDFIT® 90 Day)",
+          "Listening again to my body’s natural signals. (Food Freedom)",
+          "Integrating nutrition, rest and movement into my routine. (Radiant Balance)"
+        ]
+      },
+      "q3": {
+        "question": "Which format suits you best?",
+        "options": [
+          "1:1 sessions tailored to my pace. (Coaching 1:1)",
+          "Group programme with support and videos. (WILDFIT® 90 Day)",
+          "Short, direct pathway for specific changes. (Food Freedom)",
+          "Integral programme covering different wellbeing areas. (Radiant Balance)"
+        ]
+      },
+      "q4": {
+        "question": "Which outcome excites you most?",
+        "options": [
+          "Clarity and a sustainable plan for my health. (Coaching 1:1)",
+          "A root‑and‑branch change to diet and lifestyle. (WILDFIT® 90 Day)",
+          "Eat freely without guilt or anxiety. (Food Freedom)",
+          "Feel physically and emotionally balanced every day. (Radiant Balance)"
+        ]
+      }
+    },
+    "products": [
+      {
+        "id": "coaching_1_1",
+        "title": "Coaching 1:1 — Personalised Transformation (entry point)",
+        "bullets": [
+          "Format: bespoke sessions | Languages: ES · EN · DE | Modality: in‑person (Canary Islands) and online.",
+          "For you if: you want close support to improve nutrition, manage stress, regain energy and build lasting habits.",
+          "Includes: tailored session plan + follow‑up and accountability."
+        ]
+      },
+      {
+        "id": "wildfit_90",
+        "title": "WILDFIT® 90 Day Challenge — Reset your body, reset your life",
+        "bullets": [
+          "Duration: 90 days | Format: online coaching (group + 1:1 support).",
+          "Objective: reprogramme your relationship with food and build a sustainable lifestyle.",
+          "Includes: 12+ videos with the founder, progress journal, community and the Living WILDFIT eBook."
+        ]
+      },
+      {
+        "id": "food_freedom",
+        "title": "FOOD FREEDOM — Return to your natural baseline",
+        "bullets": [
+          "Duration: 6 online sessions | Format: group or individual.",
+          "Objective: free yourself from the diet–craving–guilt cycle and recover natural hunger/satiety cues.",
+          "Includes: habit reprogramming, nutritional education and ongoing support."
+        ]
+      },
+      {
+        "id": "radiant_balance",
+        "title": "RADIANT Balance | Young SOULS — 8 weeks",
+        "bullets": [
+          "Duration: 8 weeks | Format: integral online programme.",
+          "Objective: sustained energy, emotional balance and daily habits.",
+          "Includes: nutrition + meditation + conscious movement; personal organisation and healthy boundaries."
+        ]
+      }
+    ],
+    "cta_final": "Book your Initial Mentoring Session"
+  }
+}

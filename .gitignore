@@ -1,0 +1,5 @@
+# Ignore the entire 00_StartingPoint directory and its contents
+00_StartingPoint/
+
+# Ignore all Photoshop files (*.psd) anywhere in the repository
+*.psd
