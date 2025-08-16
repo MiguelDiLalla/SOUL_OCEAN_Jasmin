@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-auto-lang="true">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="es,en,de">
     <title>Soul+Ocean — Health & Wellness | My Wellbeing is Contagious</title>
-    <meta name="description" content="Soul+Ocean es una comunidad y movimiento de bienestar que nace en las Islas Canarias para acompañarte a reconectar con tu energía, claridad y propósito.">
-    <meta name="keywords" content="bienestar, coaching, salud, canarias, soul ocean">
+    <meta name="description" content="🌊 Jasmin Klaus - Coach Nutricional WILDFIT® en Canarias. Transforma tu relación con la comida sin dietas restrictivas. Coaching 1:1 y programas online. ¡Reserva tu sesión gratuita!">
+    <meta name="keywords" content="coach nutricional canarias, wildfit coach, nutricion holistica, coaching bienestar tenerife, jasmin klaus, transformacion alimentaria, coach online español, nutricion sin dietas">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="author" content="Jasmin Klaus - Soul+Ocean">
+    <meta name="theme-color" content="#0077be">
+    <meta name="msapplication-TileColor" content="#0077be">
     <link rel="canonical" href="https://soulocean.com/">
+    
+    <!-- Hreflang for multilingual content -->
+    <link rel="alternate" hreflang="es" href="https://soulocean.com/">
+    <link rel="alternate" hreflang="en" href="https://soulocean.com/en/">
+    <link rel="alternate" hreflang="de" href="https://soulocean.com/de/">
+    <link rel="alternate" hreflang="x-default" href="https://soulocean.com/">
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//calendly.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Soul+Ocean — Health & Wellness">
     <meta property="og:description" content="Soul+Ocean es una comunidad y movimiento de bienestar que nace en las Islas Canarias.">
@@ -32,22 +50,112 @@
     <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
 
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "Soul+Ocean Health & Wellness",
+        "description": "Coach de Nutrición Holística y Transformación de Estilo de Vida en Islas Canarias",
+        "url": "https://soulocean.com",
+        "logo": "https://soulocean.com/assets/LOGO_SoulOcean.webp",
+        "image": "https://soulocean.com/assets/jasminColor.webp",
+        "founder": {
+            "@type": "Person",
+            "name": "Jasmin Klaus",
+            "jobTitle": "Coach de Nutrición Holística WILDFIT® Certified"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Islas Canarias",
+            "addressCountry": "ES"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+34660215196",
+            "contactType": "customer service",
+            "email": "coach@soul-ocean.com"
+        },
+        "sameAs": [
+            "https://www.facebook.com/people/Soul-Ocean/",
+            "https://www.instagram.com/soul_ocean_official/"
+        ],
+        "serviceType": ["Coaching nutricional", "Bienestar", "Transformación de estilo de vida"],
+        "areaServed": ["Islas Canarias", "España", "Online"]
+    }
+    </script>
+    
+    <!-- Structured Data - Professional Service -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Soul+Ocean Coaching Services",
+        "serviceType": "Health and Wellness Coaching",
+        "provider": {
+            "@type": "Person",
+            "name": "Jasmin Klaus",
+            "jobTitle": "WILDFIT® Certified Coach"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Coaching 1:1 Transformación Personalizada",
+                "description": "Sesiones personalizadas de coaching nutricional y bienestar"
+            },
+            {
+                "@type": "Offer",
+                "name": "WILDFIT® 90 Day Challenge",
+                "description": "Programa de 90 días para transformar la relación con la comida"
+            }
+        ]
+    }
+    </script>
+
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="language-selector">
-            <button class="lang-btn active" onclick="switchLanguage('es')" id="btn-es">ES</button>
-            <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en">EN</button>
-            <button class="lang-btn" onclick="switchLanguage('de')" id="btn-de">DE</button>
+        <div class="language-selector" role="group" aria-label="Selector de idioma">
+            <button class="lang-btn" 
+                    onclick="switchLanguage('es')" 
+                    id="btn-es"
+                    aria-label="Cambiar a español"
+                    title="Español">ES</button>
+            <button class="lang-btn" 
+                    onclick="switchLanguage('en')" 
+                    id="btn-en"
+                    aria-label="Switch to English"
+                    title="English">EN</button>
+            <button class="lang-btn" 
+                    onclick="switchLanguage('de')" 
+                    id="btn-de"
+                    aria-label="Auf Deutsch wechseln"
+                    title="Deutsch">DE</button>
         </div>
         <div class="navbar-logo">
-            <img src="assets/LOGO_SoulOcean.webp" alt="Soul+Ocean Logo" loading="eager">
+            <img src="assets/LOGO_SoulOcean.webp" 
+                 alt="Soul+Ocean - Coach de Nutrición Holística en Canarias" 
+                 loading="eager"
+                 width="180" 
+                 height="60">
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="breadcrumb" style="display: none;">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/">
+                        <span itemprop="name">Inicio</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+            </ol>
+        </nav>
+        
         <!-- Brand Section - Hidden as requested -->
         <section class="section" id="brand" style="display: none;">
             <h1 class="knewave-regular" data-i18n="brand.name">Soul+Ocean — Health & Wellness</h1>
@@ -55,7 +163,10 @@
         </section>
 
         <!-- Intro Section -->
-        <section class="section" id="intro">
+        <section class="section" id="intro" itemscope itemtype="https://schema.org/AboutPage">
+            <header style="display: none;">
+                <h1>Soul+Ocean - Coach de Nutrición Holística en Canarias</h1>
+            </header>
             <div class="intro-panel" data-state="collapsed">
                 <div class="intro-header">
                     <h2 class="intro-title" data-i18n="intro.title">Presentación — ¿Qué es Soul+Ocean?</h2>
@@ -96,11 +207,16 @@
         </section>
 
         <!-- Bio Section -->
-        <section class="section" id="bio">
+        <section class="section" id="bio" itemscope itemtype="https://schema.org/Person">
             <div class="bio-panel">
                 <div class="bio-content">
-                    <h2 class="bio-title" data-i18n="bio.title">¿Quién es Jasmin Klaus?</h2>
-                    <div class="badge" data-i18n="bio.badge">Coach de Nutrición Holística y Transformación de Estilo de Vida. Atleta y surfista. WILDFIT® Certified Coach.</div>
+                    <h2 class="bio-title" data-i18n="bio.title">¿Quién es <span itemprop="name">Jasmin Klaus</span>?</h2>
+                    <div class="badge" itemprop="jobTitle" data-i18n="bio.badge">Coach de Nutrición Holística y Transformación de Estilo de Vida. Atleta y surfista. WILDFIT® Certified Coach.</div>
+                    
+                    <meta itemprop="url" content="https://soulocean.com">
+                    <meta itemprop="email" content="coach@soul-ocean.com">
+                    <meta itemprop="telephone" content="+34660215196">
+                    <meta itemprop="workLocation" content="Islas Canarias, España">
                     
                     <ul class="bullets" id="bio-bullets">
                         <li data-i18n="bio.bullets.0">20+ años en turismo y hostelería liderando experiencias de alto rendimiento y mejora de procesos.</li>
@@ -116,8 +232,21 @@
                 
                 <div class="bio-image-container">
                     <div class="bio-image-wrapper">
-                        <img src="assets/jasminColor.webp" loading="lazy" alt="Jasmin Klaus" class="bio-image active" id="bio-img-color">
-                        <img src="assets/jasminBW.webp" loading="lazy" alt="Jasmin Klaus" class="bio-image" id="bio-img-bw">
+                        <img src="assets/jasminColor.webp" 
+                             alt="Jasmin Klaus - Coach de Nutrición Holística WILDFIT® Certificada en Islas Canarias" 
+                             class="bio-image active" 
+                             id="bio-img-color"
+                             loading="lazy"
+                             width="400" 
+                             height="600"
+                             itemprop="image">
+                        <img src="assets/jasminBW.webp" 
+                             alt="Jasmin Klaus - Experta en transformación nutricional y bienestar" 
+                             class="bio-image" 
+                             id="bio-img-bw"
+                             loading="lazy"
+                             width="400" 
+                             height="600">
                         <div class="bio-quote-overlay">
                             <div class="quote" data-i18n="bio.quote">
                                 "Tu bienestar puede ser tu mejor energía contagiosa. Estoy aquí para ayudarte a activarla."
@@ -134,7 +263,12 @@
             
             <div class="pillars-grid" id="pillars-grid">
                 <div class="pillar-panel" data-state="collapsed" data-pillar="stress">
-                    <img src="assets/animated/stress.webp" loading="lazy" alt="Definir el estrés" class="pillar-icon">
+                    <img src="assets/animated/stress.webp" 
+                         loading="lazy" 
+                         alt="Definir el estrés - Coaching nutricional para gestión del estrés" 
+                         class="pillar-icon"
+                         width="80" 
+                         height="80">
                     <h3 class="pillar-title" data-i18n="pillars.items.0.title">Definir el estrés</h3>
                     <div class="pillar-content">
                         <h3 data-i18n="pillars.items.0.title">Definir el estrés</h3>
@@ -146,7 +280,12 @@
                 </div>
                 
                 <div class="pillar-panel" data-state="collapsed" data-pillar="limits">
-                    <img src="assets/animated/limits.webp" loading="lazy" alt="Aprender a poner límites" class="pillar-icon">
+                    <img src="assets/animated/limits.webp" 
+                         loading="lazy" 
+                         alt="Aprender a poner límites - Coaching para límites saludables" 
+                         class="pillar-icon"
+                         width="80" 
+                         height="80">
                     <h3 class="pillar-title" data-i18n="pillars.items.1.title">Aprender a poner límites</h3>
                     <div class="pillar-content">
                         <h3 data-i18n="pillars.items.1.title">Aprender a poner límites</h3>
@@ -158,7 +297,12 @@
                 </div>
                 
                 <div class="pillar-panel" data-state="collapsed" data-pillar="rutine">
-                    <img src="assets/animated/rutine.webp" loading="lazy" alt="Establecer una rutina que te sostenga" class="pillar-icon">
+                    <img src="assets/animated/rutine.webp" 
+                         loading="lazy" 
+                         alt="Establecer una rutina que te sostenga - Coaching de hábitos saludables" 
+                         class="pillar-icon"
+                         width="80" 
+                         height="80">
                     <h3 class="pillar-title" data-i18n="pillars.items.2.title">Establecer una rutina que te sostenga</h3>
                     <div class="pillar-content">
                         <h3 data-i18n="pillars.items.2.title">Establecer una rutina que te sostenga</h3>
@@ -170,7 +314,12 @@
                 </div>
                 
                 <div class="pillar-panel" data-state="collapsed" data-pillar="self">
-                    <img src="assets/animated/self.webp" loading="lazy" alt="El poder del autocuidado" class="pillar-icon">
+                    <img src="assets/animated/self.webp" 
+                         loading="lazy" 
+                         alt="El poder del autocuidado - Coaching de bienestar personal" 
+                         class="pillar-icon"
+                         width="80" 
+                         height="80">
                     <h3 class="pillar-title" data-i18n="pillars.items.3.title">El poder del autocuidado</h3>
                     <div class="pillar-content">
                         <h3 data-i18n="pillars.items.3.title">El poder del autocuidado</h3>
@@ -216,7 +365,12 @@
                             <li data-i18n="catalog.products.1.bullets.2">Incluye: +12 vídeos con el fundador, diario de progreso, comunidad y eBook Living WILDFIT.</li>
                         </ul>
                         <div class="product-image-container">
-                            <img src="assets/Wildfit2020_Rebrand.webp" alt="WILDFIT 2020 Rebrand" class="product-image" loading="lazy">
+                            <img src="assets/Wildfit2020_Rebrand.webp" 
+                                 alt="WILDFIT 2020 - Programa de transformación nutricional de 90 días certificado" 
+                                 class="product-image" 
+                                 loading="lazy"
+                                 width="300" 
+                                 height="200">
                         </div>
                     </div>
                 </div>
@@ -252,6 +406,39 @@
             
             <div class="catalog-cta-container">
                 <a href="https://calendly.com/soul-ocean/30min" class="catalog-cta-link calendly-link" data-i18n="catalog.cta_final">Reserva tu Sesión de Mentoring Inicial</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section for Rich Snippets -->
+        <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage" style="display: none;">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">¿Qué es el coaching nutricional WILDFIT®?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">WILDFIT® es un programa certificado de 90 días que te ayuda a reprogramar tu relación con la comida, eliminando antojos y creando hábitos alimentarios sostenibles sin dietas restrictivas.</div>
+                </div>
+            </div>
+            
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">¿Ofrecen sesiones presenciales en Canarias?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">Sí, Jasmin Klaus ofrece sesiones presenciales en las Islas Canarias, así como coaching online para clientes en toda España y otros países de habla hispana, inglesa y alemana.</div>
+                </div>
+            </div>
+            
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">¿En qué idiomas está disponible el coaching?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">Ofrecemos coaching en español, inglés y alemán para adaptarnos a las necesidades de nuestros clientes internacionales.</div>
+                </div>
+            </div>
+            
+            <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <h3 itemprop="name">¿Cómo funciona la sesión de mentoring inicial?</h3>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemprop="text">La sesión inicial es una consulta personalizada donde evaluamos tus objetivos, historial y necesidades específicas para recomendarte el programa más adecuado para tu transformación.</div>
+                </div>
             </div>
         </section>
 

@@ -121,10 +121,36 @@ function updateContent() {
         document.title = `${langData.brand.name} | ${langData.brand.tagline}`;
     }
 
+    // Update hreflang links dynamically
+    updateHreflangLinks();
+
     // Update Calendly links
     const calendlyUrl = config.external_links?.calendly || 'https://calendly.com/soul-ocean/30min';
     document.querySelectorAll('.calendly-link').forEach(link => {
         link.href = calendlyUrl;
+    });
+}
+
+// Update hreflang links based on current language
+function updateHreflangLinks() {
+    // Remove existing hreflang links
+    document.querySelectorAll('link[hreflang]').forEach(link => link.remove());
+    
+    // Add updated hreflang links
+    const baseUrl = window.location.origin + window.location.pathname;
+    const hreflangs = [
+        { lang: 'es', url: baseUrl },
+        { lang: 'en', url: baseUrl + (currentLanguage === 'en' ? '' : 'en/') },
+        { lang: 'de', url: baseUrl + (currentLanguage === 'de' ? '' : 'de/') },
+        { lang: 'x-default', url: baseUrl }
+    ];
+    
+    hreflangs.forEach(({ lang, url }) => {
+        const link = document.createElement('link');
+        link.rel = 'alternate';
+        link.hreflang = lang;
+        link.href = url;
+        document.head.appendChild(link);
     });
 }
 
@@ -133,11 +159,16 @@ function switchLanguage(lang) {
     if (translations[lang]) {
         currentLanguage = lang;
         
-        // Update active button
+        // Update active button and aria states
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
         });
-        document.getElementById(`btn-${lang}`).classList.add('active');
+        const activeButton = document.getElementById(`btn-${lang}`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+            activeButton.setAttribute('aria-pressed', 'true');
+        }
         
         // Update content
         updateContent();
@@ -145,6 +176,7 @@ function switchLanguage(lang) {
         // Save preference to localStorage if enabled
         if (config.features?.language_persistence) {
             localStorage.setItem('preferredLanguage', lang);
+            console.log(`Language preference saved: ${lang}`);
         }
         
         console.log(`Language switched to: ${lang}`);
@@ -153,23 +185,90 @@ function switchLanguage(lang) {
     }
 }
 
+// Detect browser language and return appropriate language code
+function detectBrowserLanguage() {
+    // Get browser language preferences (in order of preference)
+    const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage];
+    
+    // Map of supported languages
+    const supportedLanguages = ['es', 'en', 'de'];
+    
+    // First, check if URL contains language indication (e.g., /en/, /de/)
+    const urlPath = window.location.pathname;
+    const urlLangMatch = urlPath.match(/\/?(en|de|es)\/?/);
+    if (urlLangMatch && supportedLanguages.includes(urlLangMatch[1])) {
+        console.log(`URL language detected: ${urlLangMatch[1]}`);
+        return urlLangMatch[1];
+    }
+    
+    // Check each browser language preference
+    for (const browserLang of browserLanguages) {
+        // Extract language code (e.g., 'en-US' -> 'en', 'es-ES' -> 'es')
+        const langCode = browserLang.toLowerCase().substring(0, 2);
+        
+        // Check if we support this language
+        if (supportedLanguages.includes(langCode)) {
+            console.log(`Browser language detected: ${browserLang} -> Using: ${langCode}`);
+            return langCode;
+        }
+    }
+    
+    // Fallback to Spanish if no supported language found
+    console.log(`No supported browser language found. Falling back to Spanish.`);
+    return 'es';
+}
+
 // Initialize language system
 async function initializeLanguage() {
     await loadTranslations();
     
-    // Check for saved language preference if enabled
+    let selectedLanguage = 'es'; // Default fallback
+    
+    // Check for saved language preference if enabled (highest priority)
     if (config.features?.language_persistence) {
         const savedLang = localStorage.getItem('preferredLanguage');
         if (savedLang && translations[savedLang]) {
-            currentLanguage = savedLang;
+            selectedLanguage = savedLang;
+            console.log(`Using saved language preference: ${selectedLanguage}`);
+        } else {
+            // No saved preference, detect browser language
+            selectedLanguage = detectBrowserLanguage();
         }
+    } else {
+        // Language persistence disabled, always detect browser language
+        selectedLanguage = detectBrowserLanguage();
     }
     
+    // Ensure we have translations for the selected language
+    if (!translations[selectedLanguage]) {
+        console.warn(`No translations available for ${selectedLanguage}, falling back to Spanish`);
+        selectedLanguage = 'es';
+    }
+    
+    // Set the detected/selected language
+    currentLanguage = selectedLanguage;
+    
     // Set active button
-    document.getElementById(`btn-${currentLanguage}`).classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const activeButton = document.getElementById(`btn-${currentLanguage}`);
+    if (activeButton) {
+        activeButton.classList.add('active');
+        activeButton.setAttribute('aria-pressed', 'true');
+    }
+    
+    // Update other buttons aria-pressed state
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn !== activeButton) {
+            btn.setAttribute('aria-pressed', 'false');
+        }
+    });
     
     // Update content
     updateContent();
+    
+    console.log(`Language system initialized with: ${currentLanguage}`);
 }
 
 // Smooth scrolling for CTA buttons (excluding Calendly links)
