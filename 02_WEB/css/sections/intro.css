@@ -1,0 +1,229 @@
+
+/* ===== INTRO SECTION CONTAINER ===== */
+#intro { position: relative; }
+
+/* ===== MAIN PANEL CONTAINER - FROSTED GLASS EFFECT ===== */
+#intro .intro-panel {
+  position: relative;
+  /* Glass morphism background - configurable via intro_aesthetics.glass_panel.background_opacity */
+  background: rgba(255, 255, 255, var(--intro-glass-bg-opacity, 0.08));
+  /* Corner roundness - linked to global --border-radius variable */
+  border-radius: var(--border-radius, 20px);
+  /* Responsive padding - configurable via intro_aesthetics.glass_panel.padding_* */
+  padding: clamp(var(--intro-padding-min, 16px), var(--intro-padding-scale, 2.5vw), var(--intro-padding-max, 28px));
+  /* Depth shadow - configurable via intro_aesthetics.glass_panel.shadow_* */
+  box-shadow: 0 10px var(--intro-shadow-blur, 30px) rgba(0,0,0,var(--intro-shadow-opacity, .4));
+  /* Subtle border for definition - configurable via intro_aesthetics.glass_panel.border_opacity */
+  border: 1px solid rgba(255, 255, 255, var(--intro-border-opacity, 0.15));
+  /* Essential for pseudo-element layering and glass effect */
+  overflow: hidden;
+  isolation: isolate;
+  /* Glass blur effect - configurable via intro_aesthetics.glass_panel.backdrop_blur */
+  backdrop-filter: blur(var(--intro-backdrop-blur, 10px));
+}
+/* ===== ANIMATED ACCENT GLOW - BACKGROUND LAYER ===== */
+#intro .intro-panel::before {
+  content: "";
+  position: absolute; left: 0; bottom: 0;
+  /* Oversized dimensions - configurable via intro_aesthetics.accent_glow.size_* */
+  width: var(--intro-glow-width, 160%); 
+  height: var(--intro-glow-height, 160%);
+  /* Position glow - configurable via intro_aesthetics.accent_glow.position_* */
+  transform: translate(var(--intro-glow-x, -35%), var(--intro-glow-y, 25%));
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0% 100%,
+      /* Core glow color - configurable via intro_aesthetics.accent_glow.color */
+      var(--intro-glow-color, var(--accent-color, #F2B738)) var(--intro-glow-core-pos, 0%),
+      /* Mid-range transparency - configurable via intro_aesthetics.accent_glow.gradient_stops.mid */
+      var(--intro-glow-mid-color, rgba(242, 183, 56, 0.25)) var(--intro-glow-mid-pos, 25%),
+      /* Fade to subtle - configurable via intro_aesthetics.accent_glow.gradient_stops.fade */
+      var(--intro-glow-fade-color, rgba(242, 183, 56, 0.10)) var(--intro-glow-fade-pos, 45%),
+      /* Complete fade - configurable via intro_aesthetics.accent_glow.gradient_stops.transparent */
+      transparent var(--intro-glow-transparent-pos, 65%));
+  /* Blur amount - configurable via intro_aesthetics.accent_glow.blur_amount */
+  filter: blur(var(--intro-glow-blur, 14px));
+  /* Overall glow opacity - configurable via intro_aesthetics.accent_glow.overall_opacity */
+  opacity: var(--intro-glow-opacity, .6);
+  /* Gentle pulsing animation - configurable via intro_aesthetics.accent_glow.animation */
+  animation: so-pulse var(--intro-pulse-duration, 7s) var(--intro-pulse-timing, ease-in-out) infinite;
+  z-index: -1;
+}
+/* ===== PULSE ANIMATION - BREATHING EFFECT ===== */
+@keyframes so-pulse {
+  /* Start/End state - configurable via intro_aesthetics.accent_glow.animation.scale_min/opacity_min */
+  0%, 100% { 
+    transform: translate(var(--intro-glow-x, -35%), var(--intro-glow-y, 25%)) scale(var(--intro-pulse-scale-min, 0.98)); 
+    opacity: var(--intro-pulse-opacity-min, .70); 
+  }
+  /* Peak state - configurable via intro_aesthetics.accent_glow.animation.scale_max/opacity_max */
+  50% { 
+    transform: translate(var(--intro-glow-x, -35%), var(--intro-glow-y, 25%)) scale(var(--intro-pulse-scale-max, 1.04)); 
+    opacity: var(--intro-pulse-opacity-max, .82); 
+  }
+}
+
+/* ===== TEXTURE OVERLAY - GRID PATTERN FOR TACTILE FEEL ===== */
+#intro .intro-panel::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    /* Horizontal lines - configurable via intro_aesthetics.texture_overlay.patterns.horizontal */
+    repeating-linear-gradient(0deg, var(--intro-texture-h-color, rgba(255,255,255,.08)) 0 1px, transparent 1px var(--intro-texture-h-spacing, 3px)),
+    /* Vertical lines - configurable via intro_aesthetics.texture_overlay.patterns.vertical */
+    repeating-linear-gradient(90deg, var(--intro-texture-v-color, rgba(255,255,255,.05)) 0 1px, transparent 1px var(--intro-texture-v-spacing, 4px)),
+    /* Diagonal texture - configurable via intro_aesthetics.texture_overlay.patterns.diagonal */
+    repeating-linear-gradient(45deg, var(--intro-texture-d-color, rgba(255,255,255,.03)) 0 1px, transparent 1px var(--intro-texture-d-spacing, 3px));
+  /* Blending mode - configurable via intro_aesthetics.texture_overlay.blend_mode */
+  mix-blend-mode: var(--intro-texture-blend, overlay);
+  /* Overall texture opacity - configurable via intro_aesthetics.texture_overlay.overall_opacity */
+  opacity: var(--intro-texture-opacity, .4);
+  z-index: 1;
+}
+/* ===== CLICKABLE HEADER - COLLAPSIBLE TRIGGER ===== */
+#intro .intro-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  cursor: pointer; user-select: none;
+  /* Ensure header content stays above all background effects */
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== TITLE STYLING - RESPONSIVE TYPOGRAPHY ===== */
+#intro .intro-title { 
+  /* Responsive font sizing - configurable via intro_aesthetics.typography.title.font_size_* */
+  font-size: clamp(var(--intro-title-size-min, 1.5rem), var(--intro-title-size-scale, 4vw), var(--intro-title-size-max, 2rem)); 
+  /* Line height - configurable via intro_aesthetics.typography.title.line_height */
+  line-height: var(--intro-title-line-height, 1.2); 
+  margin: 0; 
+  /* Font weight - configurable via intro_aesthetics.typography.title.font_weight */
+  font-weight: var(--intro-title-weight, 700);
+  
+  /* Gentle rainbow rolling animation - same as promise section */
+  background: linear-gradient(
+    90deg,
+    #FF6B6B,  /* Coral */
+    #4ECDC4,  /* Turquoise */
+    #45B7D1,  /* Sky Blue */
+    #96CEB4,  /* Mint Green */
+    #FFEAA7,  /* Soft Yellow */
+    #FF6B6B   /* Back to Coral for seamless loop */
+  );
+  background-size: 400% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: rainbow-roll 8s ease-in-out infinite;
+}
+
+@keyframes rainbow-roll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== CHEVRON INDICATOR - EXPAND/COLLAPSE VISUAL CUE ===== */
+#intro .intro-chev { 
+  /* Size - configurable via intro_aesthetics.typography.chevron.font_size */
+  font-size: var(--intro-chevron-size, 1.25rem); 
+  /* Transitions - configurable via intro_aesthetics.typography.chevron.transition_duration */
+  transition: transform var(--intro-chevron-transition, .25s) ease, opacity var(--intro-chevron-transition, .25s) ease; 
+  /* Initial opacity - configurable via intro_aesthetics.typography.chevron.opacity_initial */
+  opacity: var(--intro-chevron-opacity, .7);
+  /* Uses theme accent color for brand consistency */
+  color: var(--accent-color, #F2B738);
+  /* Bold weight for better visibility */
+  font-weight: bold;
+}
+/* ===== COLLAPSIBLE CONTENT BODY - SMOOTH REVEAL ANIMATION ===== */
+#intro .intro-body {
+  /* Clip overflow to hide content during collapse */
+  overflow: clip;
+  /* Collapsed state - no visible height */
+  max-height: 0;
+  /* Completely transparent when collapsed */
+  opacity: 0;
+  /* Transform - configurable via intro_aesthetics.animations.collapse_expand.transform_collapsed */
+  transform: var(--intro-transform-collapsed, translateY(-2px));
+  /* Staggered transitions - configurable via intro_aesthetics.animations.collapse_expand */
+  transition: 
+    max-height var(--intro-max-height-transition, .5s) var(--intro-transition-timing, ease), 
+    opacity var(--intro-opacity-transition, .3s) var(--intro-transition-timing, ease), 
+    transform var(--intro-transform-transition, .3s) var(--intro-transition-timing, ease);
+  /* Performance optimization for height animation */
+  will-change: max-height;
+  /* Small gap from header when expanded */
+  margin-top: .5rem;
+  /* Stay above background effects */
+  position: relative;
+  z-index: 2;
+  /* Ensure text inherits theme color */
+  color: var(--text-color, #FFFFFF);
+}
+
+/* ===== EXPANDED STATE STYLES ===== */
+#intro .intro-panel[data-state="expanded"] .intro-body {
+  /* Max height - configurable via intro_aesthetics.animations.collapse_expand.max_height_expanded */
+  max-height: var(--intro-max-height-expanded, 1200px);
+  /* Fully visible when expanded */
+  opacity: 1;
+  /* Transform - configurable via intro_aesthetics.animations.collapse_expand.transform_expanded */
+  transform: var(--intro-transform-expanded, translateY(0));
+}
+
+/* ===== CHEVRON ROTATION ON EXPAND ===== */
+#intro .intro-panel[data-state="expanded"] .intro-chev { 
+  /* 180° rotation to indicate expanded state */
+  transform: rotate(180deg); 
+  /* Active opacity - configurable via intro_aesthetics.typography.chevron.opacity_active */
+  opacity: var(--intro-chevron-opacity-active, 1); 
+}
+
+/* ===== CTA BUTTON CONTAINER ===== */
+#intro .intro-cta { 
+  /* Right-aligned call-to-action */
+  display: flex; 
+  justify-content: flex-end; 
+  /* Space from content above */
+  margin-top: .75rem; 
+}
+
+/* ===== CTA LINK STYLING - SUBTLE UNDERLINE APPROACH ===== */
+#intro .cta-link {
+  /* Inherit text color from parent */
+  color: inherit; 
+  /* Remove default link decoration */
+  text-decoration: none; 
+  /* Custom underline with current text color */
+  border-bottom: 1px solid currentColor; 
+  /* Small gap between text and underline */
+  padding-bottom: 2px;
+  /* Initial opacity - configurable via intro_aesthetics.animations.cta_links.opacity_initial */
+  opacity: var(--intro-cta-opacity, .85); 
+  /* Transitions - configurable via intro_aesthetics.animations.cta_links.transition_duration */
+  transition: opacity var(--intro-cta-transition, .2s) ease, border-color var(--intro-cta-transition, .2s) ease;
+}
+
+/* ===== CTA LINK HOVER STATES ===== */
+#intro .cta-link:hover, #intro .cta-link:focus-visible {
+  /* Hover opacity - configurable via intro_aesthetics.animations.cta_links.opacity_hover */
+  opacity: var(--intro-cta-opacity-hover, 1); 
+  /* Hover accent color - configurable via intro_aesthetics.animations.cta_links.hover_accent_color */
+  border-color: var(--intro-cta-hover-color, var(--accent-color, #F2B738));
+}
+
+/* ===== ACCESSIBILITY - REDUCED MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) { 
+  /* Disable pulsing animation for motion-sensitive users */
+  #intro .intro-panel::before { animation: none; } 
+  /* Remove collapse/expand transitions */
+  #intro .intro-body { transition: none; } 
+}

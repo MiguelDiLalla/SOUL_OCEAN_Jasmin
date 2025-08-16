@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul+Ocean — Health & Wellness | My Wellbeing is Contagious</title>
+    <meta name="description" content="Soul+Ocean es una comunidad y movimiento de bienestar que nace en las Islas Canarias para acompañarte a reconectar con tu energía, claridad y propósito.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Knewave&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/ICONO_SoulOcean.png">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sections/navbar.css">
+    <link rel="stylesheet" href="css/sections/intro.css">
+    <link rel="stylesheet" href="css/sections/promise.css">
+    <link rel="stylesheet" href="css/sections/bio.css">
+    <link rel="stylesheet" href="css/sections/pillars.css">
+    <link rel="stylesheet" href="css/sections/pillars-widget.css">
+    <link rel="stylesheet" href="css/sections/catalog.css">
+    <link rel="stylesheet" href="css/sections/contact.css">
+    
+    <style>
+        :root {
+            /* Default values - will be overridden by config.json */
+            --bg-color: #1F4209;
+            --text-color: #FFFFFF;
+            --accent-color: #4A9;
+            --accent-secondary: #2E7D32;
+            --navbar-height: 200px;
+            --navbar-height-mobile: 150px;
+            --logo-size: 150px;
+            --logo-size-mobile: 100px;
+            --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --max-width: 1200px;
+            --section-spacing: 4rem;
+            --section-padding: 3rem 0;
+            --border-radius: 15px;
+            --button-radius: 30px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Gabarito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .gabarito-light {
+            font-family: "Gabarito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .gabarito-medium {
+            font-family: "Gabarito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .gabarito-bold {
+            font-family: "Gabarito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .gabarito-black {
+            font-family: "Gabarito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .knewave-regular {
+            font-family: "Knewave", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-height);
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--navbar-shadow);
+        }
+
+        .navbar-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .navbar-logo img {
+            height: var(--logo-size);
+            width: auto;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-family: "Gabarito", sans-serif;
+            font-weight: 500;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: 0.9rem;
+            padding: 0;
+            transition: color 0.3s ease;
+            text-align: left;
+        }
+
+        .lang-btn:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .lang-btn.active {
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: var(--navbar-height);
+            padding: 2rem;
+        }
+
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto var(--section-spacing);
+            padding: var(--section-padding);
+        }
+
+        .section h1, .section h2 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+        }
+
+        /* Modern impactful promise section title */
+        #promise h2 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 0;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            text-align: left;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding-left: 2rem;
+            padding-right: 2rem;
+            word-wrap: break-word;
+            hyphens: auto;
+            max-width: none;
+        }
+
+        /* Modern impactful promise quote - all caps, justified, no container */
+        #promise .quote {
+            font-style: normal;
+            font-size: 1.3rem;
+            text-align: justify;
+            text-transform: uppercase;
+            margin: 2rem 0;
+            padding: 0;
+            border: none;
+            background: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding-left: 2rem;
+            padding-right: 2rem;
+            max-width: none;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .bullets {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .bullets li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: var(--button-radius);
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .work-result {
+            margin-top: 1rem;
+        }
+
+        .work-result strong {
+            color: var(--accent-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .product-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .quiz-options li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-options li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: var(--navbar-height-mobile);
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .navbar-logo {
+                flex: none;
+                order: 1;
+            }
+
+            .navbar-logo img {
+                height: var(--logo-size-mobile);
+            }
+
+            .language-selector {
+                position: static;
+                flex-direction: row;
+                gap: 0;
+                justify-content: center;
+                align-items: center;
+                order: 2;
+            }
+
+            .lang-btn {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            .lang-btn:not(:last-child)::after {
+                content: ",";
+                color: rgba(255, 255, 255, 0.4);
+                margin-left: 0.2rem;
+                margin-right: 0.5rem;
+            }
+
+            .main-content {
+                margin-top: var(--navbar-height-mobile);
+                padding: 1rem;
+            }
+
+            .section h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile responsive promise title */
+            #promise h2 {
+                font-size: 2.8rem;
+                line-height: 1.0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Mobile responsive promise quote */
+            #promise .quote {
+                font-size: 1.1rem;
+                text-align: justify;
+                letter-spacing: 0.3px;
+                line-height: 1.3;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="language-selector">
+            <button class="lang-btn active" onclick="switchLanguage('es')" id="btn-es">ES</button>
+            <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('de')" id="btn-de">DE</button>
+        </div>
+        <div class="navbar-logo">
+            <img src="assets/LOGO_SoulOcean.webp" alt="Soul+Ocean Logo">
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Brand Section - Hidden as requested -->
+        <section class="section" id="brand" style="display: none;">
+            <h1 class="knewave-regular" data-i18n="brand.name">Soul+Ocean — Health & Wellness</h1>
+            <p class="quote gabarito-medium" data-i18n="brand.tagline">"My Wellbeing is Contagious"</p>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="section" id="intro">
+            <div class="intro-panel" data-state="collapsed">
+                <div class="intro-header">
+                    <h2 class="intro-title" data-i18n="intro.title">Presentación — ¿Qué es Soul+Ocean?</h2>
+                    <span class="intro-chev">▼</span>
+                </div>
+                <div class="intro-body" id="intro-body">
+                    <p data-i18n="intro.body">Soul+Ocean es una comunidad y movimiento de bienestar que nace en las Islas Canarias para acompañarte a reconectar con tu energía, claridad y propósito. Creemos que el bienestar se expande como una ola: cuando tú te cuidas de verdad, contagias salud y vitalidad a tu entorno.</p>
+                    
+                    <ul class="bullets" id="intro-bullets">
+                        <li data-i18n="intro.bullets.0">Esencia: autenticidad, conexión, ciencia + conciencia, resultados sostenibles.</li>
+                        <li data-i18n="intro.bullets.1">Qué hacemos: coaching, programas y experiencias que integran nutrición consciente, gestión emocional y hábitos reales para tu vida.</li>
+                        <li data-i18n="intro.bullets.2">Para quién: profesionales activos y personas deportistas/activas que quieren más energía, foco y libertad con la comida.</li>
+                    </ul>
+                    
+                    <div class="intro-cta">
+                        <a href="#" class="cta-link calendly-link" data-i18n="intro.cta_primary">Reserva tu Sesión de Mentoring Inicial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promise Section -->
+        <section class="section" id="promise">
+            <h2 data-i18n="promise.title">Promesa de marca</h2>
+            <div class="quote" data-i18n="promise.quote">
+                "Te ayudo a transformar tu relación con la comida, tu cuerpo y tu energía para que vivas con más vitalidad, claridad y equilibrio, sin dietas restrictivas. Mi bienestar es contagioso, y quiero que el tuyo también lo sea."
+                <a href="#" class="calendly-link" data-i18n="promise.cta_quote">Reserva tu Sesión de Mentoring Inicial</a>
+            </div>
+            
+            <h3 data-i18n="promise.how_title">Cómo lo hacemos</h3>
+            <ul class="bullets" id="promise-bullets">
+                <li data-i18n="promise.how_bullets.0">Enfoque holístico e integrativo (cuerpo–mente–emociones).</li>
+                <li data-i18n="promise.how_bullets.1">Educación práctica con acompañamiento cercano y responsable.</li>
+                <li data-i18n="promise.how_bullets.2">Protocolos personalizados que se adaptan a tu vida (no al revés).</li>
+            </ul>
+            
+            <a href="#" class="cta-button calendly-link" data-i18n="promise.cta">Empieza con tu Mentoring Inicial</a>
+        </section>
+
+        <!-- Bio Section -->
+        <section class="section" id="bio">
+            <div class="bio-panel">
+                <div class="bio-content">
+                    <h2 class="bio-title" data-i18n="bio.title">¿Quién es Jasmin Klaus?</h2>
+                    <div class="badge" data-i18n="bio.badge">Coach de Nutrición Holística y Transformación de Estilo de Vida. Atleta y surfista. WILDFIT® Certified Coach.</div>
+                    
+                    <ul class="bullets" id="bio-bullets">
+                        <li data-i18n="bio.bullets.0">20+ años en turismo y hostelería liderando experiencias de alto rendimiento y mejora de procesos.</li>
+                        <li data-i18n="bio.bullets.1">Integra inteligencia emocional y PNL para cambios profundos y sostenibles.</li>
+                        <li data-i18n="bio.bullets.2">Comunica en alemán, inglés y español.</li>
+                        <li data-i18n="bio.bullets.3">Base en Islas Canarias; trabajo presencial y online.</li>
+                    </ul>
+                    
+                    <div class="bio-cta-container">
+                        <a href="#" class="cta-button calendly-link" data-i18n="bio.cta">Conóceme y reserva tu Mentoring</a>
+                    </div>
+                </div>
+                
+                <div class="bio-image-container">
+                    <div class="bio-image-wrapper">
+                        <img src="assets/jasminColor.webp" alt="Jasmin Klaus" class="bio-image active" id="bio-img-color">
+                        <img src="assets/jasminBW.webp" alt="Jasmin Klaus" class="bio-image" id="bio-img-bw">
+                        <div class="bio-quote-overlay">
+                            <div class="quote" data-i18n="bio.quote">
+                                "Tu bienestar puede ser tu mejor energía contagiosa. Estoy aquí para ayudarte a activarla."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars Section -->
+        <section class="section" id="pillars">
+            <h2 data-i18n="pillars.title">Lo que significa trabajar con Jasmin — 4 pilares</h2>
+            
+            <div class="pillars-grid" id="pillars-grid">
+                <div class="pillar-panel" data-state="collapsed" data-pillar="stress">
+                    <img src="assets/animated/stress.webp" alt="Definir el estrés" class="pillar-icon">
+                    <h3 class="pillar-title" data-i18n="pillars.items.0.title">Definir el estrés</h3>
+                    <div class="pillar-content">
+                        <h3 data-i18n="pillars.items.0.title">Definir el estrés</h3>
+                        <div class="work-result">
+                            <p><strong>Trabajo:</strong> <span data-i18n="pillars.items.0.work">Mapa de estresores (laborales, emocionales, fisiológicos) y su impacto en energía, sueño y digestión.</span></p>
+                            <p><strong>Resultado:</strong> <span data-i18n="pillars.items.0.result">Estrategias personalizadas de regulación, pausas efectivas y límites de agenda para recuperar claridad y rendimiento.</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pillar-panel" data-state="collapsed" data-pillar="limits">
+                    <img src="assets/animated/limits.webp" alt="Aprender a poner límites" class="pillar-icon">
+                    <h3 class="pillar-title" data-i18n="pillars.items.1.title">Aprender a poner límites</h3>
+                    <div class="pillar-content">
+                        <h3 data-i18n="pillars.items.1.title">Aprender a poner límites</h3>
+                        <div class="work-result">
+                            <p><strong>Trabajo:</strong> <span data-i18n="pillars.items.1.work">Patrones familiares y sociales que drenan tu energía; comunicación asertiva.</span></p>
+                            <p><strong>Resultado:</strong> <span data-i18n="pillars.items.1.result">Límites sanos y amorosos; relaciones más equilibradas y tiempo de calidad para ti.</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pillar-panel" data-state="collapsed" data-pillar="rutine">
+                    <img src="assets/animated/rutine.webp" alt="Establecer una rutina que te sostenga" class="pillar-icon">
+                    <h3 class="pillar-title" data-i18n="pillars.items.2.title">Establecer una rutina que te sostenga</h3>
+                    <div class="pillar-content">
+                        <h3 data-i18n="pillars.items.2.title">Establecer una rutina que te sostenga</h3>
+                        <div class="work-result">
+                            <p><strong>Trabajo:</strong> <span data-i18n="pillars.items.2.work">Rituales realistas (alimentación, movimiento, descanso) que se adapten a tu vida.</span></p>
+                            <p><strong>Resultado:</strong> <span data-i18n="pillars.items.2.result">Constancia sin fricción, foco diario y progresos medibles.</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pillar-panel" data-state="collapsed" data-pillar="self">
+                    <img src="assets/animated/self.webp" alt="El poder del autocuidado" class="pillar-icon">
+                    <h3 class="pillar-title" data-i18n="pillars.items.3.title">El poder del autocuidado</h3>
+                    <div class="pillar-content">
+                        <h3 data-i18n="pillars.items.3.title">El poder del autocuidado</h3>
+                        <div class="work-result">
+                            <p><strong>Trabajo:</strong> <span data-i18n="pillars.items.3.work">Autovaloración y hábitos de cuidado que nutren cuerpo–mente–alma.</span></p>
+                            <p><strong>Resultado:</strong> <span data-i18n="pillars.items.3.result">Más autoestima, energía estable y decisiones alineadas con tus objetivos.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section class="section" id="catalog">
+            <h2 data-i18n="catalog.title">El catálogo de Jasmin (se define tras tu Mentoring Inicial)</h2>
+            <p><em data-i18n="catalog.note">Empezamos siempre por la Sesión de Mentoring Inicial. A partir de tu diagnóstico, te recomiendo el camino más adecuado.</em></p>
+            
+            <!-- Products -->
+            <div class="products-grid" id="products-grid">
+                <div class="product-item" data-product="coaching">
+                    <div class="product-overlay coaching">
+                        <h3 class="product-overlay-title" data-i18n="catalog.products.0.title">Coaching 1:1 — Transformación Personalizada</h3>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-i18n="catalog.products.0.title">Coaching 1:1 — Transformación Personalizada (puerta de entrada)</h3>
+                        <ul class="bullets">
+                            <li data-i18n="catalog.products.0.bullets.0">Formato: sesiones a medida | Idioma: ES · EN · DE | Modalidad: presencial (Canarias) y online.</li>
+                            <li data-i18n="catalog.products.0.bullets.1">Para ti si: quieres acompañamiento cercano para mejorar alimentación, gestionar estrés, recuperar energía y construir hábitos duraderos.</li>
+                            <li data-i18n="catalog.products.0.bullets.2">Incluye: plan de sesiones adaptado + seguimiento y accountability.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-item" data-product="wildfit">
+                    <div class="product-overlay wildfit">
+                        <h3 class="product-overlay-title" data-i18n="catalog.products.1.title">WILDFIT® 90 Day Challenge</h3>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-i18n="catalog.products.1.title">WILDFIT® 90 Day Challenge — Reinicia tu cuerpo, reinicia tu vida</h3>
+                        <ul class="bullets">
+                            <li data-i18n="catalog.products.1.bullets.0">Duración: 90 días | Formato: coaching online (grupo + apoyo 1:1).</li>
+                            <li data-i18n="catalog.products.1.bullets.1">Objetivo: reprogramar tu relación con la comida y crear un estilo de vida sostenible.</li>
+                            <li data-i18n="catalog.products.1.bullets.2">Incluye: +12 vídeos con el fundador, diario de progreso, comunidad y eBook Living WILDFIT.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-item" data-product="foodfreedom">
+                    <div class="product-overlay foodfreedom">
+                        <h3 class="product-overlay-title" data-i18n="catalog.products.2.title">FOOD FREEDOM</h3>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-i18n="catalog.products.2.title">FOOD FREEDOM — Vuelve a tu origen natural</h3>
+                        <ul class="bullets">
+                            <li data-i18n="catalog.products.2.bullets.0">Duración: 6 sesiones online | Formato: grupal o individual.</li>
+                            <li data-i18n="catalog.products.2.bullets.1">Objetivo: liberarte del ciclo dieta–antojos–culpa y recuperar señales naturales de hambre/saciedad.</li>
+                            <li data-i18n="catalog.products.2.bullets.2">Incluye: reprogramación de hábitos, educación nutricional y apoyo continuo.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="product-item" data-product="radiant">
+                    <div class="product-overlay radiant">
+                        <h3 class="product-overlay-title" data-i18n="catalog.products.3.title">RADIANT Balance | Young SOULS</h3>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-i18n="catalog.products.3.title">RADIANT Balance | Young SOULS — 8 semanas</h3>
+                        <ul class="bullets">
+                            <li data-i18n="catalog.products.3.bullets.0">Duración: 8 semanas | Formato: programa integral online.</li>
+                            <li data-i18n="catalog.products.3.bullets.1">Objetivo: energía sostenida, equilibrio emocional y hábitos diarios.</li>
+                            <li data-i18n="catalog.products.3.bullets.2">Incluye: nutrición + meditación + movimiento consciente; organización personal y límites sanos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="cta-button calendly-link" data-i18n="catalog.cta_final">Reserva tu Sesión de Mentoring Inicial</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <h2>Contacto</h2>
+            <p style="text-align: center;">¿Listo para comenzar tu transformación? Reserva tu sesión inicial y descubre cómo Soul+Ocean puede ayudarte a alcanzar tus objetivos de bienestar.</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="cta-button calendly-link" target="_blank">Reserva tu Sesión Inicial</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Global variables for configuration and language functionality
+        let currentLanguage = 'es';
+        let translations = {};
+        let config = {};
+
+        // Load configuration
+        async function loadConfig() {
+            try {
+                const response = await fetch('content/config.json');
+                if (response.ok) {
+                    config = await response.json();
+                    console.log('Configuration loaded:', config);
+                    applyConfig();
+                } else {
+                    console.error('Failed to load config.json');
+                }
+            } catch (error) {
+                console.error('Error loading configuration:', error);
+            }
+        }
+
+        // Apply configuration to page styles
+        function applyConfig() {
+            if (!config.theme) return;
+
+            const root = document.documentElement;
+            const theme = config.theme;
+            
+            // Apply color variables
+            if (theme.colors) {
+                root.style.setProperty('--bg-color', theme.colors.background);
+                root.style.setProperty('--text-color', theme.colors.text);
+                root.style.setProperty('--accent-color', theme.colors.accent);
+                root.style.setProperty('--accent-secondary', theme.colors.accent_secondary);
+            }
+
+            // Apply navbar configuration
+            if (theme.navbar) {
+                root.style.setProperty('--navbar-height', theme.navbar.height + 'px');
+                root.style.setProperty('--navbar-height-mobile', theme.navbar.height_mobile + 'px');
+                root.style.setProperty('--logo-size', theme.navbar.logo_size + 'px');
+                root.style.setProperty('--logo-size-mobile', theme.navbar.logo_size_mobile + 'px');
+                root.style.setProperty('--navbar-shadow', theme.navbar.shadow);
+            }
+
+            // Apply layout configuration
+            if (theme.layout) {
+                root.style.setProperty('--max-width', theme.layout.max_width);
+                root.style.setProperty('--section-spacing', theme.layout.section_spacing);
+                root.style.setProperty('--section-padding', theme.layout.section_padding);
+                root.style.setProperty('--border-radius', theme.layout.border_radius);
+                root.style.setProperty('--button-radius', theme.layout.button_radius);
+            }
+
+            // Update Calendly link if configured
+            if (config.external_links && config.external_links.calendly) {
+                document.querySelectorAll('.calendly-link').forEach(link => {
+                    link.href = config.external_links.calendly;
+                });
+            }
+        }
+
+        // Load translations
+        async function loadTranslations() {
+            try {
+                const languages = ['es', 'en', 'de'];
+                const loadPromises = languages.map(async (lang) => {
+                    const response = await fetch(`locale/${lang}.json`);
+                    if (response.ok) {
+                        translations[lang] = await response.json();
+                    } else {
+                        console.warn(`Failed to load ${lang}.json`);
+                    }
+                });
+                await Promise.all(loadPromises);
+                console.log('Translations loaded:', Object.keys(translations));
+            } catch (error) {
+                console.error('Error loading translations:', error);
+            }
+        }
+
+        // Get nested object value using dot notation
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => {
+                if (current && typeof current === 'object' && key in current) {
+                    return current[key];
+                }
+                return undefined;
+            }, obj);
+        }
+
+        // Update page content based on current language
+        function updateContent() {
+            const langData = translations[currentLanguage];
+            if (!langData) {
+                console.error(`No translations found for language: ${currentLanguage}`);
+                return;
+            }
+
+            // Update all elements with data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getNestedValue(langData, key);
+                
+                if (translation !== undefined) {
+                    element.textContent = translation;
+                } else {
+                    console.warn(`Translation missing for key: ${key} in language: ${currentLanguage}`);
+                }
+            });
+
+            // Update document language attribute
+            document.documentElement.lang = currentLanguage;
+
+            // Update page title if translation exists
+            if (langData.brand && langData.brand.name && langData.brand.tagline) {
+                document.title = `${langData.brand.name} | ${langData.brand.tagline}`;
+            }
+
+            // Update Calendly links
+            const calendlyUrl = config.external_links?.calendly || 'https://calendly.com/soul-ocean/30min';
+            document.querySelectorAll('.calendly-link').forEach(link => {
+                link.href = calendlyUrl;
+            });
+        }
+
+        // Language switcher functionality
+        function switchLanguage(lang) {
+            if (translations[lang]) {
+                currentLanguage = lang;
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById(`btn-${lang}`).classList.add('active');
+                
+                // Update content
+                updateContent();
+                
+                // Save preference to localStorage if enabled
+                if (config.features?.language_persistence) {
+                    localStorage.setItem('preferredLanguage', lang);
+                }
+                
+                console.log(`Language switched to: ${lang}`);
+            } else {
+                console.error(`Language ${lang} not available`);
+            }
+        }
+
+        // Initialize language system
+        async function initializeLanguage() {
+            await loadTranslations();
+            
+            // Check for saved language preference if enabled
+            if (config.features?.language_persistence) {
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang && translations[savedLang]) {
+                    currentLanguage = savedLang;
+                }
+            }
+            
+            // Set active button
+            document.getElementById(`btn-${currentLanguage}`).classList.add('active');
+            
+            // Update content
+            updateContent();
+        }
+
+        // Smooth scrolling for CTA buttons (excluding Calendly links)
+        function initializeSmoothScrolling() {
+            if (!config.features?.smooth_scrolling) return;
+            
+            const ctaButtons = document.querySelectorAll('a[href^="#"]:not(.calendly-link)');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Quiz interaction functionality
+        function initializeQuiz() {
+            // Quiz functionality removed - now handled by mystical catalog
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadConfig();
+            await initializeLanguage();
+            initializeSmoothScrolling();
+        });
+
+        // Expose switchLanguage function globally for onclick handlers
+        window.switchLanguage = switchLanguage;
+    </script>
+
+    <!-- JavaScript Module -->
+    <script type="module" src="js/main.js"></script>
+    <script src="js/intro.js"></script>
+    <script src="js/promise.js"></script>
+    <script src="js/bio.js"></script>
+    <script src="js/pillars.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>

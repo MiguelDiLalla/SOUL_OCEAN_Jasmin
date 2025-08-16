@@ -1,0 +1,170 @@
+{
+  "theme": {
+    "colors": {
+      "background": "#074F24",
+      "text": "#FFFFFF",
+      "accent": "#F2B738",
+      "accent_secondary": "#1F4209"
+    },
+    "typography": {
+      "primary_font": "Gabarito",
+      "secondary_font": "Knewave",
+      "font_weights": {
+        "light": 400,
+        "medium": 500,
+        "bold": 700,
+        "black": 900
+      }
+    },
+    "navbar": {
+      "height": 100,
+      "height_mobile": 150,
+      "logo_size": 75,
+      "logo_size_mobile": 90,
+      "shadow": "0 4px 20px rgba(0, 0, 0, 0.3)"
+    },
+    "layout": {
+      "max_width": "1200px",
+      "section_spacing": "1rem",
+      "section_padding": "1rem 0",
+      "border_radius": "15px",
+      "button_radius": "30px"
+    },
+    "intro_aesthetics": {
+      "glass_panel": {
+        "background_opacity": 0.08,
+        "border_opacity": 0.15,
+        "backdrop_blur": "10px",
+        "shadow_blur": "30px",
+        "shadow_opacity": 0.4,
+        "padding_min": "16px",
+        "padding_scale": "2.5vw",
+        "padding_max": "28px"
+      },
+      "accent_glow": {
+        "enabled": true,
+        "position_x": "-35%",
+        "position_y": "25%",
+        "size_width": "160%",
+        "size_height": "160%",
+        "color": "var(--accent-color, #F2B738)",
+        "gradient_stops": {
+          "core": {"position": "0%", "opacity": 1.0},
+          "mid": {"position": "25%", "opacity": 0.25},
+          "fade": {"position": "45%", "opacity": 0.10},
+          "transparent": {"position": "65%", "opacity": 0}
+        },
+        "blur_amount": "14px",
+        "overall_opacity": 0.6,
+        "animation": {
+          "enabled": true,
+          "duration": "7s",
+          "timing": "ease-in-out",
+          "scale_min": 0.98,
+          "scale_max": 1.04,
+          "opacity_min": 0.70,
+          "opacity_max": 0.82
+        }
+      },
+      "texture_overlay": {
+        "enabled": true,
+        "patterns": {
+          "horizontal": {"opacity": 0.08, "spacing": "3px"},
+          "vertical": {"opacity": 0.05, "spacing": "4px"},
+          "diagonal": {"opacity": 0.03, "spacing": "3px"}
+        },
+        "blend_mode": "overlay",
+        "overall_opacity": 0.4,
+        "overlay_color": "rgba(255,255,255,%opacity%)"
+      },
+      "typography": {
+        "title": {
+          "font_size_min": "1.5rem",
+          "font_size_scale": "4vw",
+          "font_size_max": "2rem",
+          "line_height": 1.2,
+          "font_weight": 700
+        },
+        "chevron": {
+          "font_size": "1.25rem",
+          "opacity_initial": 0.7,
+          "opacity_active": 1.0,
+          "transition_duration": "0.25s"
+        }
+      },
+      "animations": {
+        "collapse_expand": {
+          "max_height_transition": "0.5s",
+          "opacity_transition": "0.3s",
+          "transform_transition": "0.3s",
+          "timing": "ease",
+          "max_height_expanded": "1200px",
+          "transform_collapsed": "translateY(-2px)",
+          "transform_expanded": "translateY(0)"
+        },
+        "cta_links": {
+          "opacity_initial": 0.85,
+          "opacity_hover": 1.0,
+          "transition_duration": "0.2s",
+          "hover_accent_color": "var(--accent-color, #F2B738)"
+        }
+      }
+    }
+  },
+  "features": {
+    "language_persistence": true,
+    "smooth_scrolling": true,
+    "quiz_interaction": true
+  },
+  "external_links": {
+    "calendly": "https://calendly.com/your-link"
+  },
+  "aesthetic_tweaking_guide": {
+    "glass_intensity": {
+      "description": "Controls the frosted glass effect intensity",
+      "settings": ["intro_aesthetics.glass_panel.backdrop_blur", "intro_aesthetics.glass_panel.background_opacity"],
+      "examples": {
+        "subtle": {"backdrop_blur": "5px", "background_opacity": 0.05},
+        "moderate": {"backdrop_blur": "10px", "background_opacity": 0.08},
+        "dramatic": {"backdrop_blur": "20px", "background_opacity": 0.12}
+      }
+    },
+    "glow_strength": {
+      "description": "Adjusts the intensity and visibility of the accent glow",
+      "settings": ["intro_aesthetics.accent_glow.overall_opacity", "intro_aesthetics.accent_glow.gradient_stops"],
+      "examples": {
+        "subtle": {"overall_opacity": 0.3, "mid_opacity": 0.15},
+        "moderate": {"overall_opacity": 0.6, "mid_opacity": 0.25},
+        "vibrant": {"overall_opacity": 0.9, "mid_opacity": 0.35}
+      }
+    },
+    "texture_subtlety": {
+      "description": "Controls the visibility of the grid texture overlay",
+      "settings": ["intro_aesthetics.texture_overlay.overall_opacity", "intro_aesthetics.texture_overlay.patterns"],
+      "examples": {
+        "minimal": {"overall_opacity": 0.2, "horizontal_opacity": 0.04},
+        "moderate": {"overall_opacity": 0.4, "horizontal_opacity": 0.08},
+        "pronounced": {"overall_opacity": 0.6, "horizontal_opacity": 0.12}
+      }
+    },
+    "animation_speed": {
+      "description": "Controls timing for breathing effect and collapse animations",
+      "settings": ["intro_aesthetics.accent_glow.animation.duration", "intro_aesthetics.animations.collapse_expand"],
+      "examples": {
+        "slow": {"glow_duration": "10s", "collapse_duration": "0.8s"},
+        "moderate": {"glow_duration": "7s", "collapse_duration": "0.5s"},
+        "fast": {"glow_duration": "4s", "collapse_duration": "0.3s"}
+      }
+    },
+    "glow_position": {
+      "description": "Moves the accent glow to different corners or positions",
+      "settings": ["intro_aesthetics.accent_glow.position_x", "intro_aesthetics.accent_glow.position_y"],
+      "examples": {
+        "bottom_left": {"position_x": "-35%", "position_y": "25%"},
+        "bottom_right": {"position_x": "135%", "position_y": "25%"},
+        "top_left": {"position_x": "-35%", "position_y": "-75%"},
+        "center": {"position_x": "50%", "position_y": "50%"}
+      }
+    }
+  }
+}

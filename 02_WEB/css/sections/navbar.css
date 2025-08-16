@@ -1,0 +1,33 @@
+
+.navbar { transition: height .3s ease, background-color .3s ease, border-color .3s ease; }
+.navbar.is-scrolled {
+  height: calc(var(--navbar-height) * 0.7);
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: saturate(1.2) blur(6px);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* Language selector adjustments when navbar is scrolled */
+.navbar.is-scrolled .language-selector {
+  top: 0.5rem;
+  right: 1rem;
+  gap: 0.3rem;
+}
+
+.navbar.is-scrolled .lang-btn {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) { 
+  .navbar.is-scrolled { height: var(--navbar-height-mobile); }
+  
+  /* Mobile language selector adjustments when scrolled */
+  .navbar.is-scrolled .language-selector {
+    position: static;
+    gap: 0;
+  }
+  
+  .navbar.is-scrolled .lang-btn {
+    font-size: 0.7rem;
+  }
+}

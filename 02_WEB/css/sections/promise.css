@@ -1,0 +1,91 @@
+#promise > h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: clamp(16px, 4vw, 48px);
+  width: 100vw;
+  
+  /* Gentle rainbow rolling animation */
+  background: linear-gradient(
+    90deg,
+    #FF6B6B,  /* Coral */
+    #4ECDC4,  /* Turquoise */
+    #45B7D1,  /* Sky Blue */
+    #96CEB4,  /* Mint Green */
+    #FFEAA7,  /* Soft Yellow */
+    #FF6B6B   /* Back to Coral for seamless loop */
+  );
+  background-size: 400% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: rainbow-roll 8s ease-in-out infinite;
+}
+
+@keyframes rainbow-roll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Quote: keep edge-to-edge layout but remove any shadow/container styling */
+#promise > .quote {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: clamp(16px, 5vw, 64px);
+  width: 100vw;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  border-left: 0;
+  /* remove background/shadow/container effects for a clean presentation */
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: inherit;
+}
+/* Deactivate typewriter visuals and caret */
+#promise .typewriter {
+  white-space: pre-wrap;
+  display: inline;
+  word-break: break-word;
+  position: static; /* avoid absolute caret positioning */
+  padding-right: 0;
+}
+#promise .typewriter::after {
+  display: none !important;
+  content: none !important;
+}
+#promise .calendly-link {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  display: block;
+  width: 100%;
+  text-align: right;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  opacity: .85;
+  transition: opacity .2s ease, border-color .2s ease;
+  margin-top: .75rem;
+}
+#promise .calendly-link:hover,
+#promise .calendly-link:focus-visible {
+  opacity: 1;
+  border-color: var(--accent-color);
+}
+@media (max-width: 768px) {
+  #promise > h2 { letter-spacing: 0.06em; }
+  #promise > .quote { padding-inline: clamp(16px, 6vw, 40px); }
+}

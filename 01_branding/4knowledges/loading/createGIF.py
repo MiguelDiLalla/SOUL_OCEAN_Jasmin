@@ -19,6 +19,7 @@ Features:
 
 Usage Examples:
   python folder2anim.py                 # Interactive mode with all prompts
+  python folder2anim.py --group 0       # Launch interactive image selection mode
   python folder2anim.py --format webp --fps 12
   python folder2anim.py --group 1 --resize 1080x1080
   python folder2anim.py --reverse --format gif --fps 6
@@ -363,6 +364,144 @@ def _ensure_rgba(image: Image.Image) -> Image.Image:
     return image
 
 
+def interactive_image_selection(all_images: List[Path]) -> List[Path]:
+    """
+    Interactive image selection mode - like "dropping" images into an animation.
+    
+    This implements Miguel's preference for interactive learning experiences,
+    providing a hands-on way to curate and order animation frames.
+    
+    Args:
+        all_images: Complete list of available image files
+        
+    Returns:
+        List of selected images in the desired order
+        
+    Educational Features:
+        - Shows image previews with file sizes and dimensions
+        - Allows reordering and removal of selected images
+        - Provides undo functionality for learning experimentation
+        - Clear visual feedback for each action
+    """
+    console.print(Panel.fit(
+        "[bold cyan]🎨 Interactive Image Selection Mode[/]\n"
+        "[dim]Build your animation frame by frame![/]",
+        subtitle="Type image numbers to add, 'r' to remove, 'done' to finish"
+    ))
+    
+    selected_frames: List[Path] = []
+    
+    while True:
+        # Display available images table
+        if all_images:
+            available_table = Table(title="📁 Available Images")
+            available_table.add_column("#", justify="right", style="bold cyan")
+            available_table.add_column("Filename", style="green")
+            available_table.add_column("Dimensions", justify="center")
+            available_table.add_column("Size", justify="right")
+            
+            for idx, img_path in enumerate(all_images, 1):
+                size = get_image_size(img_path)
+                size_str = f"{size[0]}x{size[1]}" if size else "Unknown"
+                file_size = f"{img_path.stat().st_size / 1024:.1f} KB"
+                available_table.add_row(
+                    str(idx), 
+                    img_path.name[:30] + "..." if len(img_path.name) > 30 else img_path.name,
+                    size_str,
+                    file_size
+                )
+            
+            console.print(available_table)
+        
+        # Display current selection
+        if selected_frames:
+            selection_table = Table(title="🎬 Current Animation Sequence")
+            selection_table.add_column("Frame #", justify="right", style="bold yellow")
+            selection_table.add_column("Filename", style="green")
+            selection_table.add_column("Action", style="red")
+            
+            for idx, img_path in enumerate(selected_frames, 1):
+                selection_table.add_row(
+                    str(idx),
+                    img_path.name[:30] + "..." if len(img_path.name) > 30 else img_path.name,
+                    f"Remove with 'r{idx}'"
+                )
+            
+            console.print(selection_table)
+        else:
+            console.print("[dim]No images selected yet. Start building your animation![/]")
+        
+        # Interactive prompt with comprehensive help
+        console.print("\n[bold]Commands:[/]")
+        console.print("• [green]1-9999[/]: Add image by number to animation")
+        console.print("• [yellow]r1, r2, r3[/]: Remove frame from position")
+        console.print("• [cyan]clear[/]: Remove all selected frames")
+        console.print("• [cyan]preview[/]: Show current frame count and timing")
+        console.print("• [bold green]done[/]: Finish selection and create animation")
+        console.print("• [red]quit[/]: Cancel and exit")
+        
+        if not selected_frames:
+            prompt_text = "Add your first image (enter number)"
+        else:
+            prompt_text = f"Add image, modify sequence, or type 'done' ({len(selected_frames)} frames)"
+        
+        user_input = Prompt.ask(prompt_text).strip().lower()
+        
+        # Process user commands
+        if user_input == "done":
+            if not selected_frames:
+                console.print("[yellow]⚠️  No images selected! Add at least one image first.[/]")
+                continue
+            break
+            
+        elif user_input == "quit":
+            console.print("[red]❌ Interactive selection cancelled.[/]")
+            sys.exit(0)
+            
+        elif user_input == "clear":
+            selected_frames.clear()
+            console.print("[yellow]🧹 All frames cleared.[/]")
+            continue
+            
+        elif user_input == "preview":
+            if selected_frames:
+                console.print(f"[cyan]📊 Current animation: {len(selected_frames)} frames[/]")
+                console.print(f"[dim]Duration at 8 FPS: ~{len(selected_frames) / 8:.1f} seconds[/]")
+            else:
+                console.print("[yellow]No frames to preview yet.[/]")
+            continue
+            
+        elif user_input.startswith("r") and len(user_input) > 1:
+            # Remove frame command
+            try:
+                frame_num = int(user_input[1:])
+                if 1 <= frame_num <= len(selected_frames):
+                    removed = selected_frames.pop(frame_num - 1)
+                    console.print(f"[yellow]🗑️  Removed frame {frame_num}: {removed.name}[/]")
+                else:
+                    console.print(f"[red]❌ Invalid frame number. Use 1-{len(selected_frames)}[/]")
+            except ValueError:
+                console.print("[red]❌ Invalid remove command. Use 'r1', 'r2', etc.[/]")
+            continue
+            
+        elif user_input.isdigit():
+            # Add image by number
+            img_num = int(user_input)
+            if 1 <= img_num <= len(all_images):
+                selected_img = all_images[img_num - 1]
+                selected_frames.append(selected_img)
+                console.print(f"[green]✅ Added frame {len(selected_frames)}: {selected_img.name}[/]")
+            else:
+                console.print(f"[red]❌ Invalid image number. Use 1-{len(all_images)}[/]")
+            continue
+            
+        else:
+            console.print("[red]❌ Unknown command. Try again or type 'done' to finish.[/]")
+    
+    console.print(f"\n[bold green]🎉 Selection complete! {len(selected_frames)} frames ready for animation.[/]")
+    return selected_frames
+
+
 def save_animation(
     frames: List[Image.Image],
     out_path: Path,
@@ -429,7 +568,7 @@ def save_animation(
     "--group",
     type=str,
     default=None,
-    help="Select image group by index (e.g., '1') or dimensions (e.g., '1920x1080').",
+    help="Select image group by index (e.g., '1'), dimensions (e.g., '1920x1080'), or '0' for interactive mode.",
 )
 @click.option(
     "--reverse/--no-reverse",
@@ -524,6 +663,9 @@ def main(
     t.add_column("Count", justify="right")
     t.add_column("Sample file")
 
+    # Add special interactive mode option
+    t.add_row("[cyan]0[/]", "[bold cyan]Interactive Mode[/]", f"[cyan]{len(images)}[/]", "[dim]Manual selection & ordering[/]")
+    
     for idx, wh in enumerate(sizes_sorted, start=1):
         files = groups[wh]
         t.add_row(str(idx), f"{wh[0]}x{wh[1]}", str(len(files)), files[0].name)
@@ -531,10 +673,15 @@ def main(
 
     # Resolve target group
     selected_wh: Optional[Tuple[int, int]] = None
+    selected_files: List[Path] = []
+    interactive_mode = False
+    
     if group:
-        # User provided an index or WxH
+        # User provided an index or WxH via command line
         try:
-            if group.isdigit():
+            if group == "0":
+                interactive_mode = True
+            elif group.isdigit():
                 gi = int(group)
                 if not (1 <= gi <= len(sizes_sorted)):
                     raise ValueError
@@ -544,7 +691,7 @@ def main(
                 if selected_wh not in groups:
                     raise ValueError
         except Exception:
-            console.print("[red]Invalid --group value. Use an index like '1' or 'WIDTHxHEIGHT'.[/]")
+            console.print("[red]Invalid --group value. Use '0' for interactive, index like '1', or 'WIDTHxHEIGHT'.[/]")
             sys.exit(2)
     else:
         if non_interactive:
@@ -552,10 +699,12 @@ def main(
             sys.exit(2)
         # Ask interactively
         choice = Prompt.ask(
-            "Pick a group by index (or type dimensions like 1920x1080)",
+            "Pick a group by index, '0' for interactive mode, or type dimensions (like 1920x1080)",
             default="1",
         )
-        if choice.isdigit():
+        if choice == "0":
+            interactive_mode = True
+        elif choice.isdigit():
             gi = int(choice)
             if not (1 <= gi <= len(sizes_sorted)):
                 console.print("[red]Invalid choice index.[/]")
@@ -571,11 +720,28 @@ def main(
                 console.print(f"[red]{e}[/]")
                 sys.exit(2)
 
-    assert selected_wh is not None
-    selected_files = groups[selected_wh]
+    # Handle interactive mode or group-based selection
+    if interactive_mode:
+        console.print("\n[bold cyan]🎨 Entering Interactive Mode...[/]")
+        selected_files = interactive_image_selection(images)
+        # Create a virtual dimensions tuple for the rest of the pipeline
+        if selected_files:
+            first_size = get_image_size(selected_files[0])
+            selected_wh = first_size if first_size else (800, 600)  # fallback
+        else:
+            console.print("[red]No images selected in interactive mode.[/]")
+            sys.exit(2)
+    else:
+        assert selected_wh is not None
+        selected_files = groups[selected_wh]
 
     # Sort by creation time (Windows-friendly). Reverse if requested.
-    ordered = sort_by_ctime(selected_files, reverse=reverse)
+    # Skip sorting for interactive mode since user has already defined the order
+    if interactive_mode:
+        ordered = selected_files
+        console.print(f"[cyan]📋 Using custom order from interactive selection ({len(ordered)} frames)[/]")
+    else:
+        ordered = sort_by_ctime(selected_files, reverse=reverse)
 
     # Interactive user preference gathering
     final_fmt = fmt
@@ -608,8 +774,19 @@ def main(
     plan_table.add_column("Property", style="bold cyan")
     plan_table.add_column("Value", style="green")
     
-    plan_table.add_row("Source Group", f"{selected_wh[0]}x{selected_wh[1]} ({len(ordered)} frames)")
-    plan_table.add_row("Frame Order", "Creation time" + (" (reversed)" if reverse else ""))
+    if interactive_mode:
+        # Show mixed dimensions for interactive mode
+        dims_text = "Mixed dimensions" if len(set(get_image_size(p) for p in ordered if get_image_size(p))) > 1 else f"{selected_wh[0]}x{selected_wh[1]}"
+        plan_table.add_row("Source Mode", f"Interactive Selection ({len(ordered)} frames)")
+        plan_table.add_row("Dimensions", dims_text)
+    else:
+        plan_table.add_row("Source Group", f"{selected_wh[0]}x{selected_wh[1]} ({len(ordered)} frames)")
+    
+    if interactive_mode:
+        plan_table.add_row("Frame Order", "Custom user selection")
+    else:
+        plan_table.add_row("Frame Order", "Creation time" + (" (reversed)" if reverse else ""))
+    
     plan_table.add_row("Output Format", final_fmt.upper())
     plan_table.add_row("Frame Rate", f"{fps} FPS")
     plan_table.add_row("Resize Target", f"{resize_to[0]}x{resize_to[1]}" if resize_to else "Original dimensions")

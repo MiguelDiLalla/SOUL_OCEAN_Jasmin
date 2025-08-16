@@ -4,7 +4,7 @@
     "tagline": "My Wellbeing is Contagious"
   },
   "intro": {
-    "title": "Presentación — ¿Qué es Soul+Ocean?",
+    "title": "¿Qué es Soul+Ocean?",
     "body": "Soul+Ocean es una comunidad y movimiento de bienestar que nace en las Islas Canarias para acompañarte a reconectar con tu energía, claridad y propósito. Creemos que el bienestar se expande como una ola: cuando tú te cuidas de verdad, contagias salud y vitalidad a tu entorno.",
     "bullets": [
       "Esencia: autenticidad, conexión, ciencia + conciencia, resultados sostenibles.",
@@ -14,8 +14,8 @@
     "cta_primary": "Reserva tu Sesión de Mentoring Inicial"
   },
   "promise": {
-    "title": "Promesa de marca",
-    "quote": "Te ayudo a transformar tu relación con la comida, tu cuerpo y tu energía para que vivas con más vitalidad, claridad y equilibrio, sin dietas restrictivas. Mi bienestar es contagioso, y quiero que el tuyo también lo sea.",
+    "title": "Nuestro bienestar es contagioso, y quiero que el tuyo también lo sea.",
+    "quote": "Te ayudo a transformar tu relación con la comida, tu cuerpo y tu energía para que vivas con más vitalidad, claridad y equilibrio, sin dietas restrictivas. ",
     "how_title": "Cómo lo hacemos",
     "how_bullets": [
       "Enfoque holístico e integrativo (cuerpo–mente–emociones).",
@@ -25,7 +25,7 @@
     "cta": "Empieza con tu Mentoring Inicial"
   },
   "bio": {
-    "title": "¿Quién es Jasmin Klaus?",
+    "title": "Jasmin Klaus",
     "badge": "Coach de Nutrición Holística y Transformación de Estilo de Vida. Atleta y surfista. WILDFIT® Certified Coach.",
     "bullets": [
       "20+ años en turismo y hostelería liderando experiencias de alto rendimiento y mejora de procesos.",
@@ -37,7 +37,7 @@
     "cta": "Conóceme y reserva tu Mentoring"
   },
   "pillars": {
-    "title": "Lo que significa trabajar con Jasmin — 4 pilares",
+    "title": "¿Qué significa trabajar con Jasmin? — 4 pilares",
     "items": [
       {
         "title": "Definir el estrés",
@@ -63,51 +63,12 @@
     "cta_mid": "Quiero mi Mentoring Inicial"
   },
   "catalog": {
-    "title": "El catálogo de Jasmin (se define tras tu Mentoring Inicial)",
+    "title": "El catálogo de Jasmin:",
     "note": "Empezamos siempre por la Sesión de Mentoring Inicial. A partir de tu diagnóstico, te recomiendo el camino más adecuado.",
-    "quiz": {
-      "title": "FAST-QUIZ for ideal product match",
-      "q1": {
-        "question": "¿Qué describe mejor tu objetivo principal ahora mismo?",
-        "options": [
-          "Recuperar energía y construir hábitos duraderos. (Coaching 1:1)",
-          "Reiniciar mi metabolismo y relación con la comida. (WILDFIT® 90 Day)",
-          "Liberarme de antojos y romper el ciclo dieta-culpa. (Food Freedom)",
-          "Equilibrar mi energía y emociones con hábitos diarios. (Radiant Balance)"
-        ]
-      },
-      "q2": {
-        "question": "¿Cuál es tu mayor reto con la alimentación y el bienestar?",
-        "options": [
-          "Mantener la constancia y tener un plan personalizado. (Coaching 1:1)",
-          "Seguir un método probado que me guíe paso a paso. (WILDFIT® 90 Day)",
-          "Volver a escuchar las señales naturales de mi cuerpo. (Food Freedom)",
-          "Integrar nutrición, descanso y movimiento en mi rutina. (Radiant Balance)"
-        ]
-      },
-      "q3": {
-        "question": "¿Qué formato te resulta más cómodo?",
-        "options": [
-          "Sesiones 1:1 adaptadas a mi ritmo. (Coaching 1:1)",
-          "Programa grupal con acompañamiento y vídeos. (WILDFIT® 90 Day)",
-          "Talleres cortos y directos para cambios puntuales. (Food Freedom)",
-          "Programa integral con diferentes áreas de bienestar. (Radiant Balance)"
-        ]
-      },
-      "q4": {
-        "question": "¿Qué resultado te ilusiona más alcanzar?",
-        "options": [
-          "Tener claridad y un plan sostenible para mi salud. (Coaching 1:1)",
-          "Cambiar mi alimentación y estilo de vida de raíz. (WILDFIT® 90 Day)",
-          "Comer libremente sin culpa ni ansiedad. (Food Freedom)",
-          "Sentirme en equilibrio físico y emocional cada día. (Radiant Balance)"
-        ]
-      }
-    },
     "products": [
       {
         "id": "coaching_1_1",
-        "title": "Coaching 1:1 — Transformación Personalizada (puerta de entrada)",
+        "title": "Coaching 1:1 — Transformación Personalizada",
         "bullets": [
           "Formato: sesiones a medida | Idioma: ES · EN · DE | Modalidad: presencial (Canarias) y online.",
           "Para ti si: quieres acompañamiento cercano para mejorar alimentación, gestionar estrés, recuperar energía y construir hábitos duraderos.",

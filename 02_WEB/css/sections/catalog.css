@@ -1,0 +1,117 @@
+
+/* Catalog Section - Mystical Product Cards */
+
+.product-item.is-recommended {
+  outline: 2px solid var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(0,0,0,.15), 0 0 36px -8px var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.product-item { 
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-item:hover { 
+  transform: translateY(-2px); 
+  box-shadow: var(--so-shadow-sm); 
+}
+
+/* Mystical Image Overlay System */
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 10;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-overlay.hidden {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+.product-overlay-title {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  max-width: 280px;
+}
+
+.product-content {
+  position: relative;
+  z-index: 5;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.2s;
+}
+
+.product-item.revealed .product-content {
+  opacity: 1;
+}
+
+/* Specific background images for each product */
+.product-overlay.coaching {
+  background-image: url('../../assets/catalog/coaching.webp');
+}
+
+.product-overlay.wildfit {
+  background-image: url('../../assets/catalog/wildfit.webp');
+}
+
+.product-overlay.foodfreedom {
+  background-image: url('../../assets/catalog/foodfreedom.webp');
+}
+
+.product-overlay.radiant {
+  background-image: url('../../assets/catalog/radiant.webp');
+}
+
+/* Enhanced mystical hover effects */
+.product-item:not(.revealed):hover .product-overlay {
+  transform: scale(1.02);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.product-item:not(.revealed):hover .product-overlay-title {
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 15px var(--accent-color),
+    0 0 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-overlay-title {
+    font-size: 1.2rem;
+    max-width: 240px;
+  }
+  
+  .product-overlay {
+    padding: 1.5rem;
+  }
+}
