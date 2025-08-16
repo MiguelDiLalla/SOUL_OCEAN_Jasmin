@@ -1,4 +1,7 @@
-
+/**
+ * Implements the animated quote typing effect in the promise section.
+ * Restarts the animation whenever the language changes.
+ */
 (function() {
   let typing = false;
   let lastTypedLang = null;

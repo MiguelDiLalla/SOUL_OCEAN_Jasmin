@@ -1,0 +1,4 @@
+# robots.txt for Soul+Ocean
+User-agent: *
+Allow: /
+Sitemap: https://soulocean.com/sitemap.xml
