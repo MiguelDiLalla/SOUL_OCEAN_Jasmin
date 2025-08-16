@@ -1,4 +1,6 @@
-
+/**
+ * Reveals sections with a fade-in effect when they enter the viewport.
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

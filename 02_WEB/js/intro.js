@@ -1,4 +1,6 @@
-
+/**
+ * Toggles the introductory panel between collapsed and expanded states.
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const panel = document.querySelector('#intro .intro-panel');
   if (!panel) return;

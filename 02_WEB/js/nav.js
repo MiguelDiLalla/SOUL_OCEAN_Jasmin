@@ -1,4 +1,6 @@
-
+/**
+ * Adds or removes the `is-scrolled` class on the navbar based on scroll position.
+ */
 document.addEventListener('scroll', () => {
   const nav = document.querySelector('.navbar');
   if (!nav) return;
