@@ -760,6 +760,9 @@
   position: relative;
   display: inline-block;
   
+  /* Knewave font family added while preserving everything else */
+  font-family: "Knewave", system-ui;
+  
   /* Rainbow rolling animation - same as intro and bio sections */
   background: linear-gradient(
     90deg,
@@ -950,6 +953,7 @@
     font-size: 1.5rem;
     text-align: center;
     display: block;
+    font-family: "Knewave", system-ui;
   }
 }
 /* === contact.css === */
